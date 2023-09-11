@@ -1,0 +1,60 @@
+.wrapper {
+    height: var(--navbar-height);
+    display: flex;
+    align-items: center;
+    padding: 0 var(--size-normal);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    transition: all ease-out var(--anim-duration-normal);
+}
+
+.wrapper::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: "";
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+    z-index: -1;
+    opacity: 0;
+}
+
+.navbarItem {
+    display: flex;
+    align-items: center;
+    gap: var(--size-normal);
+    text-decoration: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.showBackground {
+    background-color: var(--color-background) !important;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.showBackground::before {
+    opacity: 0;
+}
+
+.navbarTitle {
+    opacity: 0;
+    transition: all ease-out var(--anim-duration-normal);
+}
+
+.navbarTitle {
+    color: var(--color-foreground);
+}
+
+.showBackground .navbarTitle {
+    color: var(--color-foreground) !important;
+    opacity: 1;
+}
+
+.isOverDark .navbarTitle {
+    color: var(--color-background);
+}

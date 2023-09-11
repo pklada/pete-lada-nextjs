@@ -1,0 +1,13 @@
+.divider {
+    display: flex;
+    overflow: hidden;
+}
+
+.divider svg {
+    flex-shrink: 0;
+}
+
+.divider svg path {
+    stroke: var(--color-accent);
+    opacity: 0.2;
+}

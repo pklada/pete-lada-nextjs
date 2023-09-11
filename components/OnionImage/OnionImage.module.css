@@ -1,0 +1,65 @@
+
+
+.wrapper {
+    position: relative;
+}
+
+.wrapper img {
+    display: block;
+    user-select: none;
+    pointer-events: none;
+}
+
+.topImage,
+.bottomImage {
+    overflow: hidden;
+}
+
+.topImage {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.handle {
+    --handle-width: 24px;
+    position: absolute;
+    top: calc(50% - 50px);
+    width: var(--handle-width);
+    left: calc(var(--handle-width) / -2);
+    z-index: 3;
+    cursor: ew-resize;
+}
+
+.handleGrabber {
+    background-color: var(--color-background);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 0 0 1px rgba(0, 0, 0, .1);
+    height: 100px;
+    position: relative;
+    z-index: 2;
+    transition: transform ease var(--anim-duration-normal);
+}
+
+.handle::before {
+    position: absolute;
+    top: -999em;
+    bottom: -999em;
+    width: 2px;
+    background-color: transparent;
+    content: "";
+    z-index: 1;
+    left: calc(50% - 1px);
+    transition: background-color ease var(--anim-duration-normal);
+}
+
+.handle:hover::before {
+    background-color: #6b9db7;
+}
+
+.handle:hover .handleGrabber {
+    transform: scale(1.1);
+}

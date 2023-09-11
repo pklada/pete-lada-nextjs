@@ -1,0 +1,62 @@
+.frame {
+    --phone-shell-color: #ccc;
+
+    padding: 10px;
+    background-color: var(--phone-shell-color);
+    max-width: 350px;
+    border-radius: 40px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+}
+
+.screen {
+    aspect-ratio: 9/19.4;
+    position: relative;
+}
+
+.screen > * {
+    width: 100%;
+    height: 100%;
+}
+
+.screen img,
+.screen video {
+    display: block;
+    border-radius: 30px;
+    overflow: hidden;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.notch {
+    position: absolute;
+    top: 0;
+    width: 40%;
+    height: 4%;
+    left: calc(50% - 20%);
+    background-color: var(--phone-shell-color);
+    z-index: 1;
+    border-radius: 0 0 20px 20px;
+}
+
+@media (max-width: 600px) {
+    .frame {
+        padding: 6px;
+        border-radius: 26px;
+    }
+
+    .screen img,
+    .screen video {
+        border-radius: 20px;
+    }
+
+    .notch {
+        top: -1px;
+    }
+}

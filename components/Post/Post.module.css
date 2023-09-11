@@ -1,0 +1,247 @@
+.stickyHeader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 11;
+    height: 0;
+    background-color: var(--color-background);
+    transition: all ease-out var(--anim-duration-normal);
+    opacity: 0;
+    transform: translateY(0) translateZ(0) scale(1) scaleY(-50%);
+    color: var(--color-foreground);
+    justify-content: space-between;
+    align-items: center;
+    transform-origin: top center;
+    border-radius: 0;
+    z-index: 999;
+    will-change: opacity, transform;
+}
+
+.stickyHeader.isVisible {
+    opacity: 1;
+    transform: translateY(0) scale(1) translateZ(0);
+    transition-delay: 0;
+}
+
+.stickyHeader .title {
+    font-weight: var(--font-weight-bold);
+}
+
+.stickyHeader .toolTip {
+    position: absolute;
+    top: calc(100% + var(--size-normal));
+    right: 0;
+    width: 250px;
+    padding: var(--size-small) var(--size-normal);
+    border-radius: var(--border-radius-normal);
+    background-color: var(--color-accent);
+    color: var(--color-background);
+    opacity: 0;
+    transform-origin: top right;
+    transform: scale(0.88);
+    transition: opacity ease-out var(--anim-duration-normal), transform ease var(--anim-duration-normal), border-radius ease var(--anim-duration-normal);
+    transition-delay: 0ms;
+    transition-duration: 0;
+    text-align: center;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    will-change: opacity, transform, border-radius;
+}
+
+.stickyHeader.isVisible .toolTip {
+    opacity: 1;
+    transition-duration: var(--anim-duration-normal);
+    transition-delay: var(--anim-duration-normal);
+}
+
+.stickyHeader.isComplete .toolTip {
+    transform: translateX(calc(var(--size-normal) * -1));
+    transition-duration: var(--anim-duration-normal);
+    transition-delay: 0ms;
+    border-radius: 99px;
+}
+
+.stickyHeader.isComplete:hover {
+    opacity: 0.5;
+}
+
+.stickyHeaderTitle,
+.stickyHeaderSubtitle {
+    font-size: var(--font-size-small);
+}
+
+.stickyHeader .toolTip > div {
+    transition: opacity ease var(--anim-duration-normal);
+}
+
+.stickyHeader.isComplete .toolTip > div {
+    opacity: 0;
+}
+
+.stickyHeader.isComplete .toolTip a {
+    opacity: 1;
+}
+
+.stickyHeader .toolTip a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity ease var(--anim-duration-normal);
+    background-color: transparent;
+}
+
+.navigation {
+    display: flex;
+    justify-content: center;
+    padding: var(--size-normal);
+    gap: var(--size-normal);
+    width: 100%;
+}
+
+.navigation a {
+    max-width: 40%;
+}
+
+.navigation a[aria-disabled=true] {
+    pointer-events: none;
+    opacity: 0.3;
+}
+
+.navigation a,
+.stickyHeader a {
+    flex: 1;
+    text-align: center;
+    text-decoration: none;
+    background-color: var(--color-accent-light);
+    padding: var(--size-normal);
+    border-radius: 999em;
+    transition: all ease-out var(--anim-duration-normal);
+    user-select: none;
+}
+
+.navigation a:hover,
+.stickyHeader a:hover {
+    opacity: var(--hover-opacity);
+}
+
+.navigation a:active,
+.stickyHeader a:active {
+    transform: scale(var(--pressed-scale));
+}
+
+.stickyHeader a {
+    flex: none;
+    background-color: var(--color-background);
+    box-shadow: inset 0 0 0 1px var(--color-accent-light);
+}
+
+.stickyHeader a.active {
+    background-color: var(--color-accent);
+    color: var(--color-background);
+}
+
+.progress {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background-color: var(--color-accent);
+    border-radius: inherit;
+    transition: opacity ease var(--anim-duration-normal);
+    z-index: -1;
+}
+
+.resources {
+    margin: 0 auto;
+    max-width: var(--max-readable-width);
+    border: 1px dashed var(--color-accent-medium);
+    padding: var(--size-large);
+    border-radius: var(--border-radius-normal);
+    position: relative;
+    margin-top: var(--size-xxlarge);
+    margin-bottom: var(--size-xxlarge);
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-normal);
+    opacity: 0.75;
+}
+
+.resources::before {
+    position: absolute;
+    background-color: var(--color-background);
+    content: "Keep reading";
+    top: -10px;
+    left: calc(var(--size-large) - var(--size-small));
+    height: 20px;
+    padding: 0 var(--size-small);
+    font-family: var(--font-family-monospace);
+    text-transform: uppercase;
+    font-size: var(--font-size-small);
+    display: flex;
+    align-items: center;
+    letter-spacing: 1px;
+    font-weight: var(--font-weight-black);
+    color: var(--color-accent);
+}
+
+.resources a {
+    transition: opacity ease var(--anim-duration-normal);
+}
+
+.resources a:hover {
+    opacity: var(--hover-opacity);
+}
+
+.divider {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--size-xxlarge);
+    margin-bottom: var(--size-xxlarge);
+}
+
+.divider > div {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .stickyHeader {
+        height: 0;
+    }
+
+    .stickyHeader .toolTip {
+        display: none;
+    }
+
+    .stickyHeader.isVisible {
+        transform: scale(1);
+    }
+
+    .stickyHeader .title {
+        font-size: var(--font-size-normal);
+    }
+
+    .stickyHeaderSubtitle {
+        display: none;
+    }
+
+    .resources {
+        margin-left: var(--size-large);
+        margin-right: var(--size-large);
+    }
+
+    .navigation {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .navigation a {
+        flex: 1;
+        max-width: none;
+    }
+}
