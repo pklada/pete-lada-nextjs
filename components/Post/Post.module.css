@@ -61,10 +61,6 @@
     border-radius: 99px;
 }
 
-.stickyHeader.isComplete:hover {
-    opacity: 0.5;
-}
-
 .stickyHeaderTitle,
 .stickyHeaderSubtitle {
     font-size: var(--font-size-small);
@@ -125,8 +121,7 @@
     user-select: none;
 }
 
-.navigation a:hover,
-.stickyHeader a:hover {
+.navigation a:hover {
     opacity: var(--hover-opacity);
 }
 
@@ -138,12 +133,16 @@
 .stickyHeader a {
     flex: none;
     background-color: var(--color-background);
-    box-shadow: inset 0 0 0 1px var(--color-accent-light);
+    pointer-events: none;
 }
 
 .stickyHeader a.active {
-    background-color: var(--color-accent);
     color: var(--color-background);
+    pointer-events: all;
+}
+
+.stickyHeader a.active:hover {
+    opacity: 0.5;
 }
 
 .progress {

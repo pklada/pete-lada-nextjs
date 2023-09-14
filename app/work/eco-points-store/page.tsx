@@ -60,8 +60,8 @@ export default function Project() {
                             <div className={styles.section}>
                                 <TextBlock>
                                     <SectionTitle>Getting buy-in</SectionTitle>
-                                    <Text>Since joining Eco, I felt strongly about introducing a way to spend points as soon as possible. We played around the edges, but never allocated resources to the initiative, instead focusing on features to reach bank-parity.</Text>
-                                    <Text>After conducting a series of research studies to address churn and growth concerns, we learned the lack of point spend programs was becoming increasingly problematic. <i>Users wanted a way to spend the Points they were accruing &mdash; trust in Eco was in jeopardy.</i></Text>
+                                    <Text>Since joining Eco, I felt strongly about introducing a way to spend points as soon as possible. Intuitively, it felt like a missing piece of the experience - users would accumulate points on the platform for various actions, but had no ability to redeem them in a meaningful way. We played around the edges, but never allocated resources to the initiative, instead focusing on features to reach bank-parity.</Text>
+                                    <Text>After conducting a series of research studies to address churn and growth concerns, we learned the lack of point spend programs was becoming increasingly problematic. <b>Users wanted a way to spend the Points they were accruing &mdash; trust in Eco was in jeopardy.</b></Text>
                                     <Text>Proactively, I put together a set of rough designs on a point store experience and pitched the programs to the executive team via a series of Loom recordings (<a href="https://www.loom.com/share/311a47696d1147b486cffcb534f80f42?sid=4f78a0fc-f5ee-4e8d-8fe2-21823546cf19">example</a>). Ultimately, the user research results combined with my product direction was enough to give our team the green light to devote resources to the problem.</Text>
                                 </TextBlock>
                             </div>
@@ -141,7 +141,7 @@ export default function Project() {
                             <div className={styles.section}>
                                 <TextBlock>
                                     <SectionTitle>Driving adoption</SectionTitle>
-                                    <Text>To make new and existing users aware of the program, we implemented a series of promotional items which I designed. We sent out a series of emails leading up to launch (example below) and introduced a new promotional app-launch sheet. We also sent a story to all users for the first drop, as well as a video story promoting the program in general.</Text>
+                                    <Text>To make new and existing users aware of the program, we implemented a series of promotional items which I designed. We sent out a series of emails leading up to launch (example below) and introduced a new promotional app-launch sheet. We also sent a story (Eco's version of an interactive notification) to all users for the first drop, as well as a video story promoting the program in general.</Text>
                                 </TextBlock>
                             </div>
 

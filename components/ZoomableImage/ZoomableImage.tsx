@@ -71,6 +71,9 @@ const ImageOverlay = ({ imgSrc, imgSrc2x, onClose, subtitle, videoSrc }: ImageOv
     const [zoomType, setZoomType] = React.useState<ZoomType>(ZoomType.fit)
     const [offset, _setOffset] = React.useState({ x: 0, y: 0 })
     const offsetRef = React.useRef(offset)
+    const shouldRestoreUI = React.useRef(false);
+    const shouldIgnoreClickEvent = React.useRef(false);
+    const willBeginDragging = React.useRef(false);
     const setOffset = (newOffset: {x: number, y: number}) => {
         offsetRef.current = newOffset;
         _setOffset(newOffset);
@@ -117,17 +120,27 @@ const ImageOverlay = ({ imgSrc, imgSrc2x, onClose, subtitle, videoSrc }: ImageOv
     })
 
     const handleImageDrag = (e: React.MouseEvent) => {
-        if (!isDragging) { return }
+        if (!willBeginDragging.current) { return }
+
+        shouldIgnoreClickEvent.current = true
 
         const newX = startOffset.x + e.clientX - startDrag.x;
         const newY = startOffset.y + e.clientY - startDrag.y;
 
+        if (!isDragging) {
+            setIsDragging(true)
+        }
+
         setOffset({ x: newX, y: newY })
     }
 
-    const handleTouchMove = (e: React.TouchEvent) => {
-        if (!isDragging) { return }
+    const handleTouchMove = (e: React.TouchEvent) => {       
+        if (!willBeginDragging.current) { return }
         if (e.touches.length > 1) { return }
+
+        if (!isDragging) {
+            setIsDragging(true)
+        }
 
         const newX = startOffset.x + e.touches[0].clientX - startDrag.x;
         const newY = startOffset.y + e.touches[0].clientY - startDrag.y;
@@ -136,27 +149,53 @@ const ImageOverlay = ({ imgSrc, imgSrc2x, onClose, subtitle, videoSrc }: ImageOv
     }
 
     const handleTouchStart = (e: React.TouchEvent) => {
-        setIsDragging(true)
+        willBeginDragging.current = true
+
         setStartOffset({ x: offset.x, y: offset.y })
         setStartDrag({ x: e.touches[0].clientX, y: e.touches[0].clientY })
 
         window.addEventListener("touchend", handleMouseUp, { once: true })
         window.addEventListener("touchcancel", handleMouseUp, { once: true })
+
+        if (!isHidingUI) {
+            setIsHidingUI(true);
+            shouldRestoreUI.current = true;
+        }
     }
 
     const handleMouseDown = (e: React.MouseEvent) => {
         if (e.button === 2) { return } // right click
 
-        setIsDragging(true)
+        willBeginDragging.current = true
+
         setStartOffset({ x: offset.x, y: offset.y })
         setStartDrag({ x: e.clientX, y: e.clientY })
 
         window.addEventListener("mouseup", handleMouseUp, { once: true })
         window.addEventListener("mouseleave", handleMouseUp, { once: true })
+
+        if (!isHidingUI) {
+            setIsHidingUI(true);
+            shouldRestoreUI.current = true;
+        }
     }
 
     const handleMouseUp = () => {
-        setIsDragging(false)
+        if (shouldRestoreUI.current) {
+            setIsHidingUI(false);
+            shouldRestoreUI.current = false;
+        }
+
+        willBeginDragging.current = false;
+
+        setIsDragging(wasDragging => {
+            if (!wasDragging) { 
+                // wasn't dragging, just a container click
+                shouldIgnoreClickEvent.current = false; 
+            }
+            return false
+        });
+
         window.removeEventListener("mouseup", handleMouseUp)
         window.removeEventListener("mouseleave", handleMouseUp)
         window.removeEventListener("touchend", handleMouseUp)
@@ -183,7 +222,8 @@ const ImageOverlay = ({ imgSrc, imgSrc2x, onClose, subtitle, videoSrc }: ImageOv
     });
 
     const handleContainerClick = () => {
-        setIsHidingUI(!isHidingUI)
+        if (shouldIgnoreClickEvent.current) { return }
+        setIsHidingUI(shouldRestoreUI.current || !isHidingUI)
     }
 
     return (
