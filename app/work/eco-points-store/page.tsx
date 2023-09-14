@@ -345,14 +345,14 @@ export default function Project() {
                   </Text>
                   <ArrowList
                     items={[
-                      <Text>
+                      <Text key="1">
                         <b>+21% MAU</b> after launch
                       </Text>,
-                      <Text>
+                      <Text key="2">
                         <b>+212% App Installs</b> in the week immediately
                         following release
                       </Text>,
-                      <Text>
+                      <Text key="3">
                         Generated <b>4.5x the support traffic</b> (generally can
                         be abstracted to product engagement).
                       </Text>

@@ -37,7 +37,9 @@ export default function Project() {
           <>
             <div
               className={`${styles.header} ${styles['header-dark']}`}
-              style={{ backgroundColor: value.color }}
+              style={{
+                backgroundColor: value.rgb ? `rgba(${value.rgb}, 1)` : undefined
+              }}
             >
               <div className={styles.intro}>
                 <h2 className={styles.title}>Guidebook Schedule Redesign</h2>

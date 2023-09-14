@@ -2,7 +2,6 @@ import { Layout } from '@/components/Layout/Layout';
 import type { Metadata } from 'next';
 import React from 'react';
 import './globals.css';
-import { NavbarContext } from '@/components/Navbar/Navbar';
 
 export const metadata: Metadata = {
   title: 'Pete Lada | Product design generalist',
@@ -29,6 +28,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#8B572A" />
         <meta name="msapplication-navbutton-color" content="#8B572A" />
         <meta name="apple-mobile-web-app-status-bar-style" content="#8B572A" />
+        <link rel="icon" href="/favicon.png" sizes="any" />
       </head>
       <body>
         <Layout>{children}</Layout>

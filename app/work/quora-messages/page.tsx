@@ -24,7 +24,9 @@ export default function Project() {
           <>
             <div
               className={`${styles.header} ${styles['header-dark']}`}
-              style={{ backgroundColor: `rgba(${value.rgb})` }}
+              style={{
+                backgroundColor: value.rgb ? `rgba(${value.rgb}, 1)` : undefined
+              }}
             >
               <div className={styles.intro}>
                 <h2 className={styles.title}>Quora Messages Redesign</h2>

@@ -1,7 +1,7 @@
 import MobileDetect from 'mobile-detect';
 import React from 'react';
 
-export const getIsSsrMobile = (context) => {
+export const getIsSsrMobile = (context: any) => {
   const md = new MobileDetect(context.req.headers['user-agent']);
 
   return Boolean(md.mobile());
