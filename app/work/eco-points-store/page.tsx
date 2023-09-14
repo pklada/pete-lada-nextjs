@@ -19,7 +19,7 @@ export default function Project() {
       title="Building the Eco Points Store"
       subtitle='"Closing the loop" on Eco Points'
       prevSlug=""
-      nextSlug="quora-dark-mode"
+      nextSlug="quora-messages"
       accentRgb="13,87,74"
     >
       <AccentColorContext.Consumer>
