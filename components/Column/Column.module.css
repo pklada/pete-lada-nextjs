@@ -1,11 +1,9 @@
-
-
 .base {
-    display: flex;
-    flex-direction: column;
-    gap: var(--size-normal);
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-normal);
 }
 
 .base.gapSmall {
-    gap: var(--size-small);
+  gap: var(--size-small);
 }

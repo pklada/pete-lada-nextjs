@@ -1,71 +1,74 @@
-"use client"
+'use client';
 
-import Image from 'next/image'
-import styles from './home.module.css'
-import { Text, TextBlock } from '@/components/Text/Text'
-import Link from 'next/link'
-import React from 'react'
-import { SidebarContext } from '@/components/Sidebar/Sidebar'
+import Image from 'next/image';
+import styles from './home.module.css';
+import { Text, TextBlock } from '@/components/Text/Text';
+import Link from 'next/link';
+import React from 'react';
+import { SidebarContext } from '@/components/Sidebar/Sidebar';
 
 export default function Home() {
-
   const sidebarContext = React.useContext(SidebarContext);
 
   React.useEffect(() => {
     sidebarContext.setIsCollapsable(false);
-  }, [])
+  }, []);
 
   return (
     <div className={styles.wrapper}>
       <TextBlock>
-        <Text size="large" weight="bold">Selected Work</Text>
-        <Text intensity="medium">Projects which highlight some of the more interesting challenges I've worked on.</Text>
+        <Text size="large" weight="bold">
+          Selected Work
+        </Text>
+        <Text intensity="medium">
+          Projects which highlight some of the more interesting challenges I've
+          worked on.
+        </Text>
       </TextBlock>
       <div className={styles.grid}>
-
         <ProjectCard
           title="Eco Points Store"
           subtitle="Closing the loop on Eco Points"
-          imgSrc='/project-cover-eco-points-store@2x.png'
-          company='Eco'
-          year='2023'
-          slug='eco-points-store'
+          imgSrc="/project-cover-eco-points-store@2x.png"
+          company="Eco"
+          year="2023"
+          slug="eco-points-store"
         />
 
         <ProjectCard
           title="Quora Messages"
           subtitle="Improving a complex multiplatform communication tool"
-          imgSrc='/project-cover-quora-messages@2x.png'
-          company='Quora'
-          year='2021'
-          slug='quora-messages'
+          imgSrc="/project-cover-quora-messages@2x.png"
+          company="Quora"
+          year="2021"
+          slug="quora-messages"
         />
 
         <ProjectCard
           title="Quora Dark Mode"
-          subtitle='Adding themeability to a massive consumer platform'
+          subtitle="Adding themeability to a massive consumer platform"
           imgSrc="/project-cover-quora-dark-mode@2x.png"
-          company='Quora'
-          year='2020'
-          slug='quora-dark-mode'
+          company="Quora"
+          year="2020"
+          slug="quora-dark-mode"
         />
 
         <ProjectCard
-          title='Guidebook Schedule Redesign'
-          subtitle='Improving a feature used by millions'
+          title="Guidebook Schedule Redesign"
+          subtitle="Improving a feature used by millions"
           imgSrc="/project-cover-schedule-redesign@2x.png"
-          company='Guidebook'
-          year='2019'
-          slug='guidebook-schedule-redesign'
+          company="Guidebook"
+          year="2019"
+          slug="guidebook-schedule-redesign"
         />
 
         <ProjectCard
-          title='Guidebook Spaces'
-          subtitle='Adding a new layer to the Guidebook platform'
+          title="Guidebook Spaces"
+          subtitle="Adding a new layer to the Guidebook platform"
           imgSrc="/project-cover-spaces@2x.png"
-          company='Guidebook'
-          year='2018'
-          slug='guidebook-spaces'
+          company="Guidebook"
+          year="2018"
+          slug="guidebook-spaces"
         />
 
         {/* <ProjectCard
@@ -94,10 +97,9 @@ export default function Home() {
           year='2017-2020'
           slug='quora-messages'
         /> */}
-
       </div>
     </div>
-  )
+  );
 }
 
 const ProjectCard = ({
@@ -108,12 +110,12 @@ const ProjectCard = ({
   year,
   slug
 }: {
-  title: string,
-  subtitle: string,
-  imgSrc: string,
-  company: string,
-  year: string,
-  slug: string
+  title: string;
+  subtitle: string;
+  imgSrc: string;
+  company: string;
+  year: string;
+  slug: string;
 }) => (
   <Link className={styles.card} href={`/work/${slug}`}>
     <div className={styles.cardImage}>
@@ -127,11 +129,15 @@ const ProjectCard = ({
     </div>
     <div className={styles.cardPills}>
       <div className={styles.cardPill}>
-        <Text size='small' isMonospace>{company}</Text>
+        <Text size="small" isMonospace>
+          {company}
+        </Text>
       </div>
       <div className={styles.cardPill}>
-        <Text size='small' isMonospace>{year}</Text>
+        <Text size="small" isMonospace>
+          {year}
+        </Text>
       </div>
     </div>
   </Link>
-)
+);

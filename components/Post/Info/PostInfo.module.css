@@ -1,92 +1,90 @@
-
-
 .info {
-    background: var(--color-accent-xlight);
-    min-width: 250px;
-    display: grid;
-    grid-template-columns: min-content 1fr;
-    float: right;
-    border-radius: var(--border-radius-normal);
-    margin: 0 0 var(--size-xlarge) var(--size-xlarge);
-    padding: var(--size-small);
+  background: var(--color-accent-xlight);
+  min-width: 250px;
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  float: right;
+  border-radius: var(--border-radius-normal);
+  margin: 0 0 var(--size-xlarge) var(--size-xlarge);
+  padding: var(--size-small);
 }
 
 .infoItem {
-    display: flex;
-    justify-content: space-between;
-    padding: var(--size-small);
+  display: flex;
+  justify-content: space-between;
+  padding: var(--size-small);
 }
 
 .infoItemTrailing,
 .infoItemLeading {
-    padding: var(--size-small);
-    display: flex;
+  padding: var(--size-small);
+  display: flex;
 }
 
 .infoItemLeading {
-    text-align: right;
-    align-items: flex-end;
-    justify-content: flex-end;
-    text-transform: uppercase;
-    font-size: var(--font-size-xsmall);
-    letter-spacing: 0.5px;
-    vertical-align: baseline;
-    position: relative;
-    top: -1px;
-    padding-right: 0;
+  text-align: right;
+  align-items: flex-end;
+  justify-content: flex-end;
+  text-transform: uppercase;
+  font-size: var(--font-size-xsmall);
+  letter-spacing: 0.5px;
+  vertical-align: baseline;
+  position: relative;
+  top: -1px;
+  padding-right: 0;
 }
 
 .infoItemLeading div {
-    display: flex;
-    align-items: center;
-    gap: var(--size-small);
+  display: flex;
+  align-items: center;
+  gap: var(--size-small);
 }
 
 .infoItemLeading div p {
-    background-color: var(--color-accent-light);
-    padding: 0 6px;
-    border-radius: 999em;
-    white-space: nowrap;
+  background-color: var(--color-accent-light);
+  padding: 0 6px;
+  border-radius: 999em;
+  white-space: nowrap;
 }
 
 .infoItemLeading svg {
-    position: relative;
-    top: -1px;
-    display: none;
+  position: relative;
+  top: -1px;
+  display: none;
 }
 
 .infoItemLeading svg path {
-    stroke: var(--color-foreground);
-    opacity: 0.5;
+  stroke: var(--color-foreground);
+  opacity: 0.5;
 }
 
 .infoItemTrailing {
-    white-space: nowrap;
-    align-self: flex-end;
+  white-space: nowrap;
+  align-self: flex-end;
 }
 
-@media (max-width: 600px) { 
-    .info {
-        float: none;
-        margin: 0 0 var(--size-large) 0;
-        grid-template-rows: auto;
-        grid-auto-columns: 1fr;
-        grid-template-columns: unset;
-        column-gap: var(--size-small);
-        row-gap: 0;
-        overflow-x: scroll;
-    }
+@media (max-width: 600px) {
+  .info {
+    float: none;
+    margin: 0 0 var(--size-large) 0;
+    grid-template-rows: auto;
+    grid-auto-columns: 1fr;
+    grid-template-columns: unset;
+    column-gap: var(--size-small);
+    row-gap: 0;
+    overflow-x: scroll;
+  }
 
-    .infoItemTrailing {
-        grid-row: 2;
-        align-self: stretch;
-    }
+  .infoItemTrailing {
+    grid-row: 2;
+    align-self: stretch;
+  }
 
-    .infoItemLeading {
-        grid-row: 1;
-        justify-self: start;
-        padding-bottom: 0;
-        position: relative;
-        left: -5px;
-    }
+  .infoItemLeading {
+    grid-row: 1;
+    justify-self: start;
+    padding-bottom: 0;
+    position: relative;
+    left: -5px;
+  }
 }

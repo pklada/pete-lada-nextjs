@@ -31,17 +31,10 @@
   --font-weight-normal: 400;
   --font-weight-bold: 500;
   --font-weight-black: 600;
-  --font-family-default: Avenir, "Work Sans", sans-serif;
-  --font-family-monospace: ui-monospace,
-    Menlo, Monaco,
-    "Cascadia Mono", "Segoe UI Mono",
-    "Roboto Mono",
-    "Oxygen Mono",
-    "Ubuntu Monospace",
-    "Source Code Pro",
-    "Fira Mono",
-    "Droid Sans Mono",
-    "Courier New", monospace;
+  --font-family-default: Avenir, 'Work Sans', sans-serif;
+  --font-family-monospace: ui-monospace, Menlo, Monaco, 'Cascadia Mono',
+    'Segoe UI Mono', 'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace',
+    'Source Code Pro', 'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
 
   --max-readable-width: 600px;
 
@@ -49,7 +42,7 @@
 
   --hover-opacity: 0.5;
   --pressed-opacity: 0.3;
-  --pressed-scale: .95;
+  --pressed-scale: 0.95;
 
   --anim-duration-normal: 150ms;
   --anim-duration-fast: 60ms;
@@ -60,7 +53,8 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {}
+  :root {
+  }
 }
 
 * {

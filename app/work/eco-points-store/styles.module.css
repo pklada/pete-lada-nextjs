@@ -1,14 +1,12 @@
-
 .header {
-
 }
 
 .headerImg {
-    height: 480px;
+  height: 480px;
 }
 
 @media (max-width: 600px) {
-    .headerImg {
-        height: 350px;
-    }
+  .headerImg {
+    height: 350px;
+  }
 }

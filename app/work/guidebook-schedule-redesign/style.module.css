@@ -1,21 +1,19 @@
-
-
 .phones {
-    position: absolute;
-    width: 600px;
-    left: calc(100% + var(--size-large));
-    top: 0;
-    pointer-events: none;
+  position: absolute;
+  width: 600px;
+  left: calc(100% + var(--size-large));
+  top: 0;
+  pointer-events: none;
 }
 
 .phones img {
-    width: 100%;
+  width: 100%;
 }
 
 .phoneContainer {
-    position: relative;
+  position: relative;
 }
 
 .phoneAvoidingItem {
-    width: 60%;
+  width: 60%;
 }

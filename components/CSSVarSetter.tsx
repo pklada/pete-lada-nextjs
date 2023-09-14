@@ -1,25 +1,26 @@
-import React from "react";
+import React from 'react';
 
 interface CSSVarSetterProps {
-    varName: string;
-    value?: string;
-    children: React.ReactNode;
+  varName: string;
+  value?: string;
+  children: React.ReactNode;
 }
 
-export const CSSVarSetter = ({ varName, value, children }: CSSVarSetterProps) => {
+export const CSSVarSetter = ({
+  varName,
+  value,
+  children
+}: CSSVarSetterProps) => {
+  const wrapperRef = React.useRef<HTMLDivElement>(null);
 
-    const wrapperRef = React.useRef<HTMLDivElement>(null);
+  React.useEffect(() => {
+    if (!value) {
+      return;
+    }
+    if (wrapperRef.current) {
+      wrapperRef.current.style.setProperty(`--${varName}`, value);
+    }
+  }, []);
 
-    React.useEffect(() => {
-        if (!value) { return }
-        if (wrapperRef.current) {
-            wrapperRef.current.style.setProperty(`--${varName}`, value);
-        }
-    }, [])
-
-    return (
-        <div ref={wrapperRef}>
-            {children}
-        </div>
-    )
-}
+  return <div ref={wrapperRef}>{children}</div>;
+};

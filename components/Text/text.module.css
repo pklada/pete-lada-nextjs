@@ -1,146 +1,144 @@
-
 .small {
-    font-size: var(--font-size-small);
+  font-size: var(--font-size-small);
 }
 
 .xsmall {
-    font-size: var(--font-size-xsmall);
+  font-size: var(--font-size-xsmall);
 }
 
 .large {
-    font-size: var(--font-size-large);
+  font-size: var(--font-size-large);
 }
 
 .medium {
-    color: var(--color-foreground-medium);
+  color: var(--color-foreground-medium);
 }
 
 .bold {
-    font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-bold);
 }
 
 .black {
-    font-weight: var(--font-weight-black);
+  font-weight: var(--font-weight-black);
 }
 
 .monospace {
-    font-family: var(--font-family-monospace);
+  font-family: var(--font-family-monospace);
 }
 
-
 .list {
-    margin-left: var(--size-large);
+  margin-left: var(--size-large);
 }
 
 .list li,
 .orderedList li {
-    margin-bottom: var(--size-normal);
+  margin-bottom: var(--size-normal);
 }
 
 .list li:last-child,
 .orderedList li:last-child {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .orderedList {
-    counter-reset: listCounter;
-    list-style: none;
+  counter-reset: listCounter;
+  list-style: none;
 }
 
 .orderedList > li {
-    counter-increment: listCounter;
-    display: flex;
-    gap: var(--size-small);
+  counter-increment: listCounter;
+  display: flex;
+  gap: var(--size-small);
 }
 
 .orderedList > li:before {
-    content: counter(listCounter);
-    display: inline-flex;
-    width: 20px;
-    height: 20px;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--color-accent);
-    color: var(--color-background);
-    flex-shrink: 0;
-    border-radius: 999em;
-    font-size: var(--font-size-xsmall);
-    font-weight: var(--font-weight-bold);
-    line-height: 1;
+  content: counter(listCounter);
+  display: inline-flex;
+  width: 20px;
+  height: 20px;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-accent);
+  color: var(--color-background);
+  flex-shrink: 0;
+  border-radius: 999em;
+  font-size: var(--font-size-xsmall);
+  font-weight: var(--font-weight-bold);
+  line-height: 1;
 }
 
 .orderedList ul,
 .orderedList ol {
-    counter-reset: listCounter;
+  counter-reset: listCounter;
 }
 
 .orderedList ol li:before {
-    background-color: var(--color-accent-light);
-    color: var(--color-accent);
+  background-color: var(--color-accent-light);
+  color: var(--color-accent);
 }
 
 .arrowList {
-    list-style: none;
-    margin-left: 0;
+  list-style: none;
+  margin-left: 0;
 }
 
 .arrowList li {
-    display: flex;
-    flex-direction: row;
-    gap: var(--size-small);
+  display: flex;
+  flex-direction: row;
+  gap: var(--size-small);
 }
 
 .arrowListIndicator {
-    flex-shrink: 0;
-    width: 18px;
-    height: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--color-accent);
-    border-radius: 50%;
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-accent);
+  border-radius: 50%;
 }
 
 .arrowListIndicator svg path {
-    stroke: var(--color-background);
+  stroke: var(--color-background);
 }
 
 .block {
-    --block-gap: var(--size-normal);
+  --block-gap: var(--size-normal);
 }
 
 .block.blockAlignCenter {
-    text-align: center;
+  text-align: center;
 }
 
 .blockGapSmall {
-    --block-gap: var(--size-small);
+  --block-gap: var(--size-small);
 }
 
 .blockGapNone {
-    --block-gap: 0;
+  --block-gap: 0;
 }
 
 .block > p,
 .block > h3,
 .block > ul,
 .block > ol {
-    margin-bottom: var(--block-gap);
+  margin-bottom: var(--block-gap);
 }
 
 .block > blockquote {
-    margin-top: calc(var(--block-gap) * 2);
-    margin-bottom: calc(var(--block-gap) * 2);
+  margin-top: calc(var(--block-gap) * 2);
+  margin-bottom: calc(var(--block-gap) * 2);
 }
 
 .block > h3 {
-    padding-top: var(--size-large);
+  padding-top: var(--size-large);
 }
 
 .block > h3:first-child {
-    padding-top: 0;
+  padding-top: 0;
 }
 
 .block > p:last-child {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }

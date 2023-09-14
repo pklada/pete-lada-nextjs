@@ -1,7 +1,6 @@
-
 @media screen and (max-width: 600px) {
-    .introImage {
-        height: auto !important;
-        margin-bottom: -200px !important;
-    }
+  .introImage {
+    height: auto !important;
+    margin-bottom: -200px !important;
+  }
 }

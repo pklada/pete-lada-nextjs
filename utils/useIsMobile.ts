@@ -1,12 +1,11 @@
-import MobileDetect from "mobile-detect";
-import React from "react";
+import MobileDetect from 'mobile-detect';
+import React from 'react';
 
 export const getIsSsrMobile = (context) => {
-  const md = new MobileDetect(context.req.headers["user-agent"]);
+  const md = new MobileDetect(context.req.headers['user-agent']);
 
   return Boolean(md.mobile());
 };
-
 
 export const IsSsrMobileContext = React.createContext(false);
 
@@ -19,8 +18,8 @@ export const useIsMobile = () => {
 };
 
 interface UseWindowSizeType {
-    width: number | undefined;
-    height: number | undefined;
+  width: number | undefined;
+  height: number | undefined;
 }
 
 export const useWindowSize = () => {
@@ -37,11 +36,11 @@ export const useWindowSize = () => {
       });
     }
 
-    window.addEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
 
     handleResize();
 
-    return () => window.removeEventListener("resize", handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   return windowSize;

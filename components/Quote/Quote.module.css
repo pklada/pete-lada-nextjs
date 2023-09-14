@@ -1,16 +1,15 @@
-
 .wrapper {
-    padding-left: var(--size-normal);
-    border-left: 2px solid var(--color-accent);
-    display: flex;
-    flex-direction: column;
-    gap: var(--size-small);
-    margin-left: calc(-1 * var(--size-normal));
+  padding-left: var(--size-normal);
+  border-left: 2px solid var(--color-accent);
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-small);
+  margin-left: calc(-1 * var(--size-normal));
 }
 
 .author {
-    text-transform: uppercase;
-    margin: 0;
-    padding: 0;
-    color: var(--color-accent);
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+  color: var(--color-accent);
 }
