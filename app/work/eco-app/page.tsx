@@ -13,21 +13,24 @@ import { PostHeader } from '@/components/Post/Header/PostHeader';
 import { IPhone } from '@/components/IPhone/IPhone';
 import Image from 'next/image';
 import Link from 'next/link';
+import MuxPlayer from '@mux/mux-player-react';
 
 const FigureWithVideo = ({
   frameColor,
   videoSrc,
   caption,
-  includeDynamicIsland = true
+  includeDynamicIsland = true,
+  muxId
 }: {
   frameColor?: string;
-  videoSrc: string;
+  videoSrc?: string;
   caption: string;
   includeDynamicIsland?: boolean;
+  muxId?: string;
 }) => (
   <figure>
     <IPhone frameColor={frameColor} includeDynamicIsland={includeDynamicIsland}>
-      <ZoomableImage videoSrc={videoSrc} subtitle={caption} />
+      <ZoomableImage videoSrc={videoSrc} subtitle={caption} muxId={muxId} />
     </IPhone>
     <figcaption className={styles.sectionCaption}>
       <Text intensity="medium">{caption}</Text>
@@ -261,9 +264,9 @@ export default function Project() {
                 <div className={styles.figureGrid}>
                   <FigureWithVideo
                     frameColor="#333"
-                    videoSrc="/eco-send-points.mov"
                     caption="The flow for sending Points to another user on Eco."
                     includeDynamicIsland={false}
+                    muxId="e00c8MAAovRRFvqypSVxEEE3s00YwWPQhOh2Fi4n7BLKA"
                   />
                   <FigureWithImage
                     frameColor="#333"

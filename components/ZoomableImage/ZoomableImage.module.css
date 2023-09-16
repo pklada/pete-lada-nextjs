@@ -89,14 +89,18 @@
 }
 
 .overlay img,
-.overlay video {
+.overlay video,
+.overlay mux-player {
   user-select: none;
   pointer-events: none;
 }
 
-.overlay.zoomFit video {
-  width: 90vw;
-  height: 90vh;
+.overlay.zoomFit video,
+.overlay.zoomFit mux-player {
+  width: 90vw !important;
+  height: 90vh !important;
+  border-radius: var(--border-radius-normal);
+  overflow: hidden;
 }
 
 .overlay .itemWrapper {
@@ -126,7 +130,8 @@
 }
 
 .overlay.zoomFit img,
-.overlay.zoomFit video {
+.overlay.zoomFit video,
+.overlay.zoomFit mux-player {
   width: 100%;
   max-width: 100%;
   height: 100%;

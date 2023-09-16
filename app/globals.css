@@ -89,6 +89,10 @@ body {
   overflow: hidden;
 }
 
+mux-player {
+  --controls: none;
+}
+
 a {
   color: var(--color-accent);
   font-weight: var(--font-weight-bold);

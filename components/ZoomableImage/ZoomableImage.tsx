@@ -9,12 +9,14 @@ import styles from './ZoomableImage.module.css';
 import { motion } from 'framer-motion';
 import { useDoubleTap } from 'use-double-tap';
 import ModalWrapper from '../ModalWrapper';
+import MuxPlayer from '@mux/mux-player-react';
 
 interface ZoomableImageProps {
   imgSrc?: string;
   imgSrc2x?: string;
   subtitle?: string;
   videoSrc?: string;
+  muxId?: string;
 }
 
 interface ImageOverlayProps extends ZoomableImageProps {
@@ -25,7 +27,8 @@ export const ZoomableImage = ({
   imgSrc,
   subtitle,
   imgSrc2x,
-  videoSrc
+  videoSrc,
+  muxId
 }: ZoomableImageProps) => {
   const [isOpen, setIsOpen] = React.useState(false);
 
@@ -54,6 +57,11 @@ export const ZoomableImage = ({
             <source src={videoSrc} />
           </video>
         )}
+        {muxId && (
+          <div onClick={handleClick}>
+            <MuxPlayer playsInline playbackId={muxId} muted loop autoPlay />
+          </div>
+        )}
         <div className={styles.zoomIcon}>
           <svg
             width="28"
@@ -76,6 +84,7 @@ export const ZoomableImage = ({
           imgSrc2x={imgSrc2x}
           onClose={handleClose}
           videoSrc={videoSrc}
+          muxId={muxId}
         />
       </ModalWrapper>
     </>
@@ -92,7 +101,8 @@ const ImageOverlay = ({
   imgSrc2x,
   onClose,
   subtitle,
-  videoSrc
+  videoSrc,
+  muxId
 }: ImageOverlayProps) => {
   const [zoomType, setZoomType] = React.useState<ZoomType>(ZoomType.fit);
   const [offset, _setOffset] = React.useState({ x: 0, y: 0 });
@@ -360,6 +370,10 @@ const ImageOverlay = ({
           <video autoPlay loop muted playsInline>
             <source src={videoSrc} />
           </video>
+        )}
+
+        {muxId && (
+          <MuxPlayer autoPlay loop muted playsInline playbackId={muxId} />
         )}
       </div>
     </motion.div>
