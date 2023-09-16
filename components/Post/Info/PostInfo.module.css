@@ -63,7 +63,7 @@
   align-self: flex-end;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
   .info {
     float: none;
     margin: 0 0 var(--size-large) 0;

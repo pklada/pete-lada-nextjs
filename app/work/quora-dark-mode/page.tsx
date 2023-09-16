@@ -142,7 +142,10 @@ export default function Project() {
               <figure className={`${styles.section} ${styles.fullWidth}`}>
                 <Browser>
                   <div className={`${styles.image} ${styles.frameless}`}>
-                    <img src="/quora-dark-mode-screen-3.jpg" />
+                    <ZoomableImage
+                      imgSrc="/quora-dark-mode-screen-3.jpg"
+                      subtitle="The primary entry point into the Credit summary view is via a user's dashboard."
+                    />
                   </div>
                 </Browser>
                 <figcaption className={styles.sectionCaption}>
@@ -153,15 +156,19 @@ export default function Project() {
                 </figcaption>
               </figure>
 
-              <figure className={`${styles.section} ${styles.fullWidth}`}>
-                <Browser>
-                  <div className={`${styles.image} ${styles.frameless}`}>
-                    <img
-                      src="/quora-dark-mode-mweb.jpg"
-                      srcSet="/quora-dark-mode-mweb.jpg, /quora-dark-mode-mweb@2x.jpg 2x"
-                    />
-                  </div>
-                </Browser>
+              <figure
+                className={`${styles.section} ${styles.fullWidth} ${styles.scrolls}`}
+              >
+                <div>
+                  <Browser>
+                    <div className={`${styles.image} ${styles.frameless}`}>
+                      <img
+                        src="/quora-dark-mode-mweb.jpg"
+                        srcSet="/quora-dark-mode-mweb.jpg, /quora-dark-mode-mweb@2x.jpg 2x"
+                      />
+                    </div>
+                  </Browser>
+                </div>
                 <figcaption className={styles.sectionCaption}>
                   <Text intensity="medium">
                     The theme setting switcher uses abstracted images to give a

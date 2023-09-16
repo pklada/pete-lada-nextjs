@@ -1,6 +1,6 @@
 .phones {
   position: absolute;
-  width: 600px;
+  width: 800px;
   left: calc(100% + var(--size-large));
   top: 0;
   pointer-events: none;
@@ -16,4 +16,32 @@
 
 .phoneAvoidingItem {
   width: 60%;
+}
+
+.videoGrid {
+  margin-left: calc(-1 * var(--size-xxlarge));
+  margin-right: calc(-1 * var(--size-xxlarge));
+}
+
+@media (max-width: 800px) {
+  .phones {
+    position: relative;
+    left: auto;
+    width: 100%;
+    margin-top: var(--size-xlarge);
+    margin-bottom: -100px;
+  }
+
+  .phones img {
+    width: 150%;
+  }
+
+  .phoneAvoidingItem {
+    width: auto;
+  }
+
+  .videoGrid {
+    margin: auto;
+    margin-left: calc(-1 * (var(--size-small) + 20px));
+  }
 }

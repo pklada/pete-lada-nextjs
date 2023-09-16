@@ -8,21 +8,26 @@ import React from 'react';
 import Link from 'next/link';
 
 export const Navbar = () => {
-  const { isOverDark, showBackground } = React.useContext(NavbarContext);
+  const { isOverDark, showBackground, subtitle } =
+    React.useContext(NavbarContext);
 
   const navbarClass = classNames({
     [styles.wrapper]: true,
     [styles.isOverDark]: isOverDark,
-    [styles.showBackground]: showBackground
+    [styles.showBackground]: showBackground,
+    [styles.hasSubtitle]: subtitle!!
   });
 
   return (
     <div className={navbarClass}>
       <Link className={styles.navbarItem} href="/">
         <ProfilePhoto size="small" />
-        <Text weight="bold" className={styles.navbarTitle}>
-          Pete Lada
-        </Text>
+        <div className={styles.navbarContent}>
+          <Text weight="bold" className={styles.navbarTitle}>
+            Pete Lada
+          </Text>
+          <Text className={styles.navbarSubtitle}>{subtitle}</Text>
+        </div>
       </Link>
     </div>
   );
@@ -35,6 +40,8 @@ interface NavbarContextType {
   setAccentRgb: (_: string | undefined) => void;
   showBackground: boolean;
   setShouldShowBackground: (_: boolean) => void;
+  subtitle?: string;
+  setSubtitle: (_: string | undefined) => void;
 }
 
 export const NavbarContext = React.createContext<NavbarContextType>({
@@ -43,5 +50,7 @@ export const NavbarContext = React.createContext<NavbarContextType>({
   setIsOverDark(_) {},
   setAccentRgb(_) {},
   showBackground: false,
-  setShouldShowBackground(_) {}
+  setShouldShowBackground(_) {},
+  subtitle: undefined,
+  setSubtitle(_) {}
 });

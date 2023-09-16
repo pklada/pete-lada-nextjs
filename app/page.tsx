@@ -27,6 +27,15 @@ export default function Home() {
       </TextBlock>
       <div className={styles.grid}>
         <ProjectCard
+          title="Eco App"
+          subtitle="Designing and developing the Eco App"
+          imgSrc="/project-cover-eco-app@2x.png"
+          company="Eco"
+          year="2021-2023"
+          slug="eco-app"
+        />
+
+        <ProjectCard
           title="Eco Points Store"
           subtitle="Closing the loop on Eco Points"
           imgSrc="/project-cover-eco-points-store@2x.png"

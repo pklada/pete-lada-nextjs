@@ -73,7 +73,7 @@
   font-weight: var(--font-weight-bold);
 }
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
   .cardImage {
     aspect-ratio: 1.5/1;
   }

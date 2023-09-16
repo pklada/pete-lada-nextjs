@@ -41,8 +41,11 @@ export const Sidebar = () => (
                 product design at Guidebook, a mobile event guide platform.
               </Text>
               <Text intensity="medium">
-                While I'm not currently looking for new opportunities, you can{" "}
-                <a href="/pete-lada-resume-2020.pdf" target='_blank'>view my resume</a> if interested.
+                While I'm not currently looking for new opportunities, you can{' '}
+                <a href="/pete-lada-resume-2020.pdf" target="_blank">
+                  view my resume
+                </a>{' '}
+                if interested.
               </Text>
             </TextBlock>
           </div>

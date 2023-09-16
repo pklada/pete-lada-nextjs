@@ -36,7 +36,8 @@
     'Segoe UI Mono', 'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace',
     'Source Code Pro', 'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
 
-  --max-readable-width: 600px;
+  --max-readable-width: 800px;
+  --min-touch-size: 36px;
 
   --border-radius-normal: 12px;
 
@@ -50,6 +51,8 @@
   --sidebar-width: 20vw;
 
   --navbar-height: 60px;
+
+  --post-header-vertical-padding: 128px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -109,20 +112,22 @@ a:active {
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
   :root {
-    --font-size-normal: 15px;
+    --font-size-normal: 16px;
     --font-size-large: 20px;
     --font-size-small: 13px;
     --font-size-xsmall: 10px;
     --font-size-title: 36px;
 
-    --size-normal: 16px;
-    --size-small: 8px;
+    --size-normal: 14px;
+    --size-small: 6px;
     --size-xsmall: 3px;
     --size-xxsmall: 2px;
     --size-large: 24px;
     --size-xlarge: 38px;
     --size-xxlarge: 48px;
+
+    --post-header-vertical-padding: 100px;
   }
 }

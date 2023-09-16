@@ -22,6 +22,7 @@
   right: -8px;
   background-color: var(--color-accent);
   border-radius: 50%;
+  transition: background-color ease var(--anim-duration-normal);
 }
 
 .badge svg {

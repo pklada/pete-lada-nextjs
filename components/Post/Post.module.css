@@ -30,7 +30,7 @@
 
 .stickyHeader .toolTip {
   position: absolute;
-  top: calc(100% + var(--size-normal));
+  top: calc(100% + var(--size-small));
   right: 0;
   width: 250px;
   padding: var(--size-small) var(--size-normal);
@@ -49,6 +49,10 @@
   text-align: center;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
   will-change: opacity, transform, border-radius;
+  min-height: 50px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
 .stickyHeader.isVisible .toolTip {
@@ -211,7 +215,7 @@
   display: none;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
   .stickyHeader {
     height: 0;
   }

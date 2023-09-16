@@ -1,11 +1,11 @@
 'use client';
 
-import React, { useEffect } from 'react';
-import styles from './Layout.module.css';
-import { Sidebar, SidebarContext } from '../Sidebar/Sidebar';
-import { NavbarContext } from '../Navbar/Navbar';
-import { Logo } from '../Logo';
 import { AccentContextWrapper } from '@/contexts/AccentColorContext';
+import React, { useEffect } from 'react';
+import { Logo } from '../Logo';
+import { NavbarContext } from '../Navbar/Navbar';
+import { Sidebar, SidebarContext } from '../Sidebar/Sidebar';
+import styles from './Layout.module.css';
 
 export const Layout = ({ children }: { children: React.ReactNode }) => {
   const [sidebarIsCollapsable, setSidebarIsCollapsable] = React.useState(false);
@@ -17,6 +17,10 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
   const [hasLoaded, setHasLoaded] = React.useState(false);
   const [topBarPercentWidth, setTopBarPercentWidth] =
     React.useState<number>(100);
+
+  const [navbarSubtitle, setNavbarSubtitle] = React.useState<
+    string | undefined
+  >(undefined);
 
   useEffect(() => {
     const path = window.location.pathname;
@@ -35,7 +39,9 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
         setIsOverDark,
         setAccentRgb,
         showBackground: showNavbarBackground,
-        setShouldShowBackground: setShowNavbarBackground
+        setShouldShowBackground: setShowNavbarBackground,
+        subtitle: navbarSubtitle,
+        setSubtitle: setNavbarSubtitle
       }}
     >
       <AccentContextWrapper rgb={accentRgb}>

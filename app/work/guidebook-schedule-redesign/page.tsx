@@ -2,13 +2,19 @@
 
 import { Column } from '@/components/Column/Column';
 import { Post } from '@/components/Post/Post';
-import { OrderedList, Text, TextBlock } from '@/components/Text/Text';
+import {
+  ArrowList,
+  OrderedList,
+  Text,
+  TextBlock
+} from '@/components/Text/Text';
 import { ZoomableImage } from '@/components/ZoomableImage/ZoomableImage';
 import { AccentColorContext } from '@/contexts/AccentColorContext';
 import { SectionTitle } from '../layout';
 import styles from '../project.module.css';
 import postStyles from './style.module.css';
 import { PostInfo } from '@/components/Post/Info/PostInfo';
+import React from 'react';
 
 export default function Project() {
   return (
@@ -113,28 +119,30 @@ export default function Project() {
               <div className={styles.section}>
                 <TextBlock>
                   <SectionTitle>Goals</SectionTitle>
-                  <OrderedList>
-                    <li>
-                      Improve the general user experience. While the schedule
-                      was relatively easy to use, I wanted to make it more
-                      delightful, engaging, and fun, as well as tap into some
-                      newer design paradigms (i.e. a page sheet).
-                    </li>
-                    <li>
-                      Simplify date navigation. Given that Guidebook supports a
-                      wide range of guide durations, we should adjust the date
-                      picker to render in an optimal way based on the guide's
-                      specific length.
-                    </li>
-                    <li>
-                      Improve filtering behavior. We want to make filtering by
-                      track easier and more intuitive.
-                    </li>
-                    <li>
-                      Update schedule/my schedule toggle design. Current design
-                      is fragile and confusing.
-                    </li>
-                  </OrderedList>
+                  <ArrowList
+                    items={[
+                      <React.Fragment key="1">
+                        Improve the general user experience. While the schedule
+                        was relatively easy to use, I wanted to make it more
+                        delightful, engaging, and fun, as well as tap into some
+                        newer design paradigms (i.e. a page sheet).
+                      </React.Fragment>,
+                      <React.Fragment key="2">
+                        Simplify date navigation. Given that Guidebook supports
+                        a wide range of guide durations, we should adjust the
+                        date picker to render in an optimal way based on the
+                        guide's specific length.
+                      </React.Fragment>,
+                      <React.Fragment key="3">
+                        Improve filtering behavior. We want to make filtering by
+                        track easier and more intuitive.
+                      </React.Fragment>,
+                      <React.Fragment key="4">
+                        Update schedule/my schedule toggle design. Current
+                        design is fragile and confusing.
+                      </React.Fragment>
+                    ]}
+                  />
                 </TextBlock>
               </div>
 
@@ -167,7 +175,9 @@ export default function Project() {
               <div
                 className={`${styles.section} ${styles.fullWidth} ${styles.sectionContrast}`}
               >
-                <div className={styles.figureGrid}>
+                <div
+                  className={`${styles.figureGrid} ${styles.figureGridMobileCol}`}
+                >
                   <figure>
                     <Column>
                       <div className={styles.image}>
@@ -241,8 +251,10 @@ export default function Project() {
 
               <figure className={`${styles.section}`}>
                 <div className={styles.figureGrid}>
-                  <div className={styles.image}>
-                    <img src="/guidebook-bottom-sheet.gif" />
+                  <div>
+                    <div className={styles.image}>
+                      <ZoomableImage imgSrc="/guidebook-bottom-sheet.gif" />
+                    </div>
                   </div>
                   <TextBlock>
                     <SectionTitle>Better filtering UX</SectionTitle>
@@ -275,8 +287,10 @@ export default function Project() {
                       paging between two separate views.
                     </Text>
                   </TextBlock>
-                  <div className={styles.image}>
-                    <img src="/guidebook-session-toggle.gif" />
+                  <div>
+                    <div className={styles.image}>
+                      <ZoomableImage imgSrc="/guidebook-session-toggle.gif" />
+                    </div>
                   </div>
                 </div>
               </figure>
@@ -286,9 +300,9 @@ export default function Project() {
                   <SectionTitle>Process</SectionTitle>
                 </TextBlock>
                 <div className={`${styles.image} ${styles.frameless}`}>
-                  <img
-                    src="/guidebook-schedule-redesign-process-chart.png"
-                    srcSet="/guidebook-schedule-redesign-process-chart.png, /guidebook-schedule-redesign-process-chart@2x.png"
+                  <ZoomableImage
+                    imgSrc="/guidebook-schedule-redesign-process-chart.png"
+                    imgSrc2x="/guidebook-schedule-redesign-process-chart@2x.png"
                   />
                 </div>
                 <figcaption className={styles.sectionCaption}>
@@ -355,24 +369,92 @@ export default function Project() {
                     </li>
 
                     <li>
-                      <TextBlock>
-                        <Text weight="bold">Prototyping</Text>
-                        <Text>
-                          From the designs, I created prototypes of nearly every
-                          new interaction encompassed by the redesign. I feel
-                          very strongly about prototyping and try to incorporate
-                          it into every project I work on. I ran these
-                          prototypes by product as well as members of the sales
-                          and CSA teams to gather feedback. They helped better
-                          communicate how the filter, picker, and other UI
-                          elements would behave. Some are shown below.
-                        </Text>
-                        <Text>
-                          We did some user testing here as well, having
-                          non-technical members of our team play around with the
-                          prototypes to provide feedback.
-                        </Text>
-                      </TextBlock>
+                      <Column>
+                        <TextBlock>
+                          <Text weight="bold">Prototyping</Text>
+                          <Text>
+                            From the designs, I created prototypes of nearly
+                            every new interaction encompassed by the redesign. I
+                            feel very strongly about prototyping and try to
+                            incorporate it into every project I work on. I ran
+                            these prototypes by product as well as members of
+                            the sales and CSA teams to gather feedback. They
+                            helped better communicate how the filter, picker,
+                            and other UI elements would behave. Some are shown
+                            below.
+                          </Text>
+                          <Text>
+                            We did some user testing here as well, having
+                            non-technical members of our team play around with
+                            the prototypes to provide feedback.
+                          </Text>
+                        </TextBlock>
+                        <div
+                          className={`${styles.figureGrid} ${styles.figureGridMobileCol} ${postStyles.videoGrid}`}
+                        >
+                          <figure>
+                            <div className={styles.video}>
+                              <ZoomableImage
+                                videoSrc="/guidebook-prototype-android-filter-sheet.m4v"
+                                subtitle="A Framer prototype I created for the Android filter bottom sheet."
+                              />
+                            </div>
+                            <figcaption className={styles.sectionCaption}>
+                              <Text intensity="medium">
+                                A Framer prototype I created for the Android
+                                filter bottom sheet.
+                              </Text>
+                            </figcaption>
+                          </figure>
+
+                          <figure>
+                            <div className={styles.video}>
+                              <ZoomableImage
+                                videoSrc="/guidebook-prototype-android-schedule.m4v"
+                                subtitle="A Framer prototype I created for the Android schedule header scroll collapse behavior."
+                              />
+                            </div>
+                            <figcaption className={styles.sectionCaption}>
+                              <Text intensity="medium">
+                                A Framer prototype I created for the Android
+                                schedule header scroll collapse behavior.
+                              </Text>
+                            </figcaption>
+                          </figure>
+
+                          <figure>
+                            <div className={styles.video}>
+                              <ZoomableImage
+                                videoSrc="/guidebook-prototype-filter-sheet.m4v"
+                                subtitle="A Framer prototype I created to test various filter pill colors in both selected and default state."
+                              />
+                            </div>
+                            <figcaption className={styles.sectionCaption}>
+                              <Text intensity="medium">
+                                A Framer prototype I created to test various
+                                filter pill colors in both selected and default
+                                state.
+                              </Text>
+                            </figcaption>
+                          </figure>
+
+                          <figure>
+                            <div className={styles.video}>
+                              <ZoomableImage
+                                videoSrc="/guidebook-prototype-week-picker.m4v"
+                                subtitle="A Framer prototype I created showing the behavior of the collapsed week/day picker on iOS."
+                              />
+                            </div>
+                            <figcaption className={styles.sectionCaption}>
+                              <Text intensity="medium">
+                                A Framer prototype I created showing the
+                                behavior of the collapsed week/day picker on
+                                iOS.
+                              </Text>
+                            </figcaption>
+                          </figure>
+                        </div>
+                      </Column>
                     </li>
 
                     <li>

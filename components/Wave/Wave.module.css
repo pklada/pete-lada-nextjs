@@ -10,4 +10,5 @@
 .divider svg path {
   stroke: var(--color-accent);
   opacity: 0.2;
+  transition: stroke ease var(--anim-duration-normal);
 }

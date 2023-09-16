@@ -1,6 +1,6 @@
 'use client';
 
-import { List, Text, TextBlock } from '@/components/Text/Text';
+import { ArrowList, List, Text, TextBlock } from '@/components/Text/Text';
 import { SectionTitle } from '../layout';
 import styles from '../project.module.css';
 import { Browser } from '@/components/Browser/Browser';
@@ -12,14 +12,64 @@ import postStyles from './styles.module.css';
 import { PostHeader } from '@/components/Post/Header/PostHeader';
 import { IPhone } from '@/components/IPhone/IPhone';
 import Image from 'next/image';
+import Link from 'next/link';
+
+const FigureWithVideo = ({
+  frameColor,
+  videoSrc,
+  caption,
+  includeDynamicIsland = true
+}: {
+  frameColor?: string;
+  videoSrc: string;
+  caption: string;
+  includeDynamicIsland?: boolean;
+}) => (
+  <figure>
+    <IPhone frameColor={frameColor} includeDynamicIsland={includeDynamicIsland}>
+      <ZoomableImage videoSrc={videoSrc} subtitle={caption} />
+    </IPhone>
+    <figcaption className={styles.sectionCaption}>
+      <Text intensity="medium">{caption}</Text>
+    </figcaption>
+  </figure>
+);
+
+const FigureWithImage = ({
+  frameColor,
+  imageSrc,
+  imageSrc2x,
+  caption,
+  includeDynamicIsland = true
+}: {
+  frameColor?: string;
+  imageSrc2x: string;
+  imageSrc: string;
+  caption: string;
+  includeDynamicIsland?: boolean;
+}) => (
+  <figure>
+    <IPhone frameColor={frameColor} includeDynamicIsland={includeDynamicIsland}>
+      <ZoomableImage
+        imgSrc={imageSrc}
+        imgSrc2x={imageSrc2x}
+        subtitle={caption}
+      />
+    </IPhone>
+    <figcaption className={styles.sectionCaption}>
+      <Text intensity="medium">{caption}</Text>
+    </figcaption>
+  </figure>
+);
 
 export default function Project() {
   return (
     <Post
-      title="Building the Eco Points Store"
-      subtitle='"Closing the loop" on Eco Points'
+      title="Designing and developing the Eco App"
+      subtitle="Creating a zero to one fintech product"
       prevSlug=""
       nextSlug="quora-dark-mode"
+      accentRgb="6,36,224"
     >
       <AccentColorContext.Consumer>
         {(value) => (
@@ -27,9 +77,10 @@ export default function Project() {
             <PostHeader
               title="Designing and developing the Eco App"
               subtitle={`Creating a zero to one fintech product`}
-              imgSrc="/project-header-eco-points-store.png"
+              imgSrc="/project-header-eco-app.png"
               className={postStyles.header}
               imgContainerClassName={postStyles.headerImg}
+              backgroundColor="6,36,224"
             />
             <div className={styles.body}>
               <div className={styles.section}>
@@ -45,7 +96,7 @@ export default function Project() {
                           <br />
                           UI/UX design
                           <br />
-                          Swift Implementation
+                          SwiftUI Implementation
                         </>
                       )
                     }
@@ -74,68 +125,55 @@ export default function Project() {
                 </TextBlock>
               </div>
 
-              <figure className={`${styles.section} ${styles.fullWidth}`}>
-                <div className={`${styles.image} ${styles.frameless}`}>
-                  <ZoomableImage
-                    imgSrc="/quora-messages-comparison.png"
-                    imgSrc2x="/quora-messages-comparison@2x.png"
-                    subtitle="Old Quora messages vs. the new redesign."
+              <div className={styles.section}>
+                <TextBlock>
+                  <SectionTitle>The Helix</SectionTitle>
+                  <Text>
+                    Before I joined, there was some conceptual design work done
+                    by{' '}
+                    <a href="https://work.co/" target="_blank">
+                      Work & Co.
+                    </a>
+                    , specifically around the helix and app navigation. The
+                    helix is a concept unique to Eco, a 3D artifact which serves
+                    as the home screen to the product, meant to represent your
+                    financial growth over time. You can think of it as a
+                    vertical bar chart where each bar represents your relative
+                    wealth at that point in time. The solid bars were historical
+                    balances, while the faded out bars were a projection into
+                    the future.
+                  </Text>
+                  <Text>
+                    I took this concept and designed most of the experience
+                    around the helix, including animations, display logic,
+                    interactions, and more. I also implemented a lot of this in
+                    Swift myself. For instance, the pull to refresh animation
+                    and the various "success animations" were built by me. This
+                    involved learning quite a bit about SceneKit (iOS' 3D
+                    renderer), particle systems, and more.{' '}
+                  </Text>
+                </TextBlock>
+              </div>
+
+              <section className={styles.section}>
+                <div className={styles.figureGrid}>
+                  <FigureWithVideo
+                    frameColor="#041178"
+                    videoSrc="/eco-helix.mov"
+                    caption="The helix served as the user's home view. I spent a lot of time getting the transitions between the helix and neighboring views feel seamless."
+                  />
+
+                  <FigureWithVideo
+                    frameColor="#041178"
+                    videoSrc="/eco-helix-refresh.mov"
+                    caption="I was particularly fond of the pull to refresh animation I created here, both in the interaction design and the 'ripple' effect while refreshing."
                   />
                 </div>
-                <figcaption className={styles.sectionCaption}>
-                  <Text intensity="medium">
-                    Old Quora messages vs. the new redesign.
-                  </Text>
-                </figcaption>
-              </figure>
+              </section>
 
               <div className={styles.section}>
                 <TextBlock>
-                  <SectionTitle>The Helix</SectionTitle>
-                  <Text>
-                    Before I joined, there was some conceptual design work done
-                    by Work & Co., specifically around the helix and app
-                    navigation. The helix is a concept unique to Eco, a 3d
-                    artifact which serves as the home screen to the product,
-                    meant to represent your financial growth over time.
-                  </Text>
-                  <Text>
-                    I took this concept and designed most of the experience
-                    around the helix, including animations, display logic,
-                    interactions, and more. I also implemented a lot of this in
-                    Swift myself. For instance, the pull to refresh animation
-                    and the various "success animations" were built by me. This
-                    involved learning quite a bit about SceneKit (iOS' 3D
-                    renderer), particle systems, and more.{' '}
-                  </Text>
-                </TextBlock>
-              </div>
-
-              <div className={styles.section}>
-                <TextBlock>
-                  <SectionTitle>The Helix</SectionTitle>
-                  <Text>
-                    Before I joined, there was some conceptual design work done
-                    by Work & Co., specifically around the helix and app
-                    navigation. The helix is a concept unique to Eco, a 3d
-                    artifact which serves as the home screen to the product,
-                    meant to represent your financial growth over time.
-                  </Text>
-                  <Text>
-                    I took this concept and designed most of the experience
-                    around the helix, including animations, display logic,
-                    interactions, and more. I also implemented a lot of this in
-                    Swift myself. For instance, the pull to refresh animation
-                    and the various "success animations" were built by me. This
-                    involved learning quite a bit about SceneKit (iOS' 3D
-                    renderer), particle systems, and more.{' '}
-                  </Text>
-                </TextBlock>
-              </div>
-
-              <div className={styles.section}>
-                <TextBlock>
-                  <SectionTitle>New user experience</SectionTitle>
+                  <SectionTitle>New user experience (NUX)</SectionTitle>
                   <Text>
                     During one of our hackathons, I conceptualized and built a
                     lightweight new user experience (NUX) for Eco. We took my
@@ -146,8 +184,8 @@ export default function Project() {
                   </Text>
                   <Text>
                     NUX ultimately was a successful launch. It allowed us to
-                    drop a lot of required steps during onboarding and move them
-                    to a post-sign up experience, increasing our deposit
+                    drop a number of required steps during onboarding and move
+                    them to a post-sign up experience, increasing our deposit
                     conversion rate. In fact, prior to launch our deposit rate
                     was 2%. <b>Post launch this increased to 10%</b>, and
                     continued to trend upwards (to near 17% - for context, the
@@ -159,105 +197,173 @@ export default function Project() {
                     "Eco Concierge" session (think: a guided onboarding by
                     someone from Eco) went from 3.6% pre-launch, to 10% post.
                   </Text>
+                  <ArrowList
+                    items={[
+                      <Text key="1">
+                        <b>Deposit rate post-launch +8%</b>.
+                      </Text>,
+                      <Text key="2">
+                        <b>Bank-link rate post-launch +17%</b>.
+                      </Text>
+                    ]}
+                  />
                 </TextBlock>
               </div>
 
+              <section className={styles.section}>
+                <div className={styles.figureGrid}>
+                  <FigureWithImage
+                    frameColor="#333"
+                    imageSrc="/eco-nux-profile.png"
+                    imageSrc2x="/eco-nux-profile@2x.png"
+                    caption="NUX was primarily completed through a user's profile view. Items could be completed inline, without needing to manually navigate back to the profile upon completion."
+                    includeDynamicIsland={false}
+                  />
+
+                  <FigureWithImage
+                    frameColor="#041178"
+                    imageSrc="/eco-nux-home.png"
+                    imageSrc2x="/eco-nux-home@2x.png"
+                    caption="New users would be presented with a NUX entry point on their home view. This aggressive treatment drove most of our NUX engagement."
+                    includeDynamicIsland={false}
+                  />
+                </div>
+              </section>
+
               <div className={styles.section}>
                 <TextBlock>
-                  <SectionTitle>Points Drops</SectionTitle>
+                  <SectionTitle>P2P</SectionTitle>
                   <Text>
-                    Points Drops is a program where a luxary, rare, or otherwise
-                    compelling item (think AirPods Max, Taylor Swift tickets,
-                    etc) is "dropped" at a regular cadence. The quantity is
-                    limited, but the "exchange rate" of Points to USD is far and
-                    away the highest on the platform. The program is designed to
-                    drive urgency and virality to the platform &mdash;{' '}
-                    <i>"what is the drop this week?"</i>,{' '}
-                    <i>"should I buy this drop, or wait for the next?"</i>,{' '}
-                    <i>"I need to tell people about this"</i> &mdash; and gamify
-                    the point-spend experience in a unique way.
+                    I designed the experience for a peer-to-peer, Venmo-like
+                    feature where you could send either USD or Eco Points to
+                    other Eco users, or people off the platform. The feature was
+                    designed to both get us closer to bank parity while also
+                    being a growth channel.
                   </Text>
-                  <Text>I think of it as a modern twist on Woot.</Text>
+                  <Text>
+                    If a user sent funds to someone not on the platform, they'd
+                    be taken through a unique onboarding experience where we'd
+                    dangle the pending funds as a carrot to complete sign up. We
+                    saw a lot of success with this referral mechanism.
+                  </Text>
+                  <ArrowList
+                    items={[
+                      <Text key="1">
+                        In the two months after launch, we saw a{' '}
+                        <b>2x increase in MAU</b>.
+                      </Text>
+                    ]}
+                  />
                 </TextBlock>
               </div>
 
+              <section className={styles.section}>
+                <div className={styles.figureGrid}>
+                  <FigureWithVideo
+                    frameColor="#333"
+                    videoSrc="/eco-send-points.mov"
+                    caption="The flow for sending Points to another user on Eco."
+                    includeDynamicIsland={false}
+                  />
+                  <FigureWithImage
+                    frameColor="#333"
+                    imageSrc="/eco-invite-pending-usd.png"
+                    imageSrc2x="/eco-invite-pending-usd@2x.png"
+                    caption="If you sent to someone who was not on Eco, they would be presented with a personalized onboarding which included their pending funds as an incentive to complete sign up."
+                  />
+                </div>
+              </section>
+
               <div className={styles.section}>
                 <TextBlock>
-                  <SectionTitle>Eco Credit</SectionTitle>
+                  <SectionTitle>Eco Card</SectionTitle>
                   <Text>
-                    Credit, in contrast to Drops, is meant to be much more
-                    utilitarian and predictable. This program wraps the ability
-                    to sell your points for USD in a layer which encourages
-                    additional transacting on the product. Instead of directly
-                    selling Points, you instead{' '}
-                    <b>
-                      <i>buy credit towards future transactions on Eco</i>
-                    </b>
-                    . Once transacted, you earn a rebate directly into your Eco
-                    account of the amount spent. This program is meant to be a
-                    reliable, evergreen way to spend your Points - the trade off
-                    being a lower exchange rate. Wrapping the program in future
-                    transactions creates a compounding effect on engagement:
-                    spending Points requires transacting, transacting earns more
-                    Points.
+                    I designed the visual components for Eco's initial and
+                    follow up debit cards, in addition to the card experience in
+                    the app itself. To reflect on various physical card designs,
+                    I created a 3D viewer in three.js to get a better sense of
+                    the presence of each design.
+                  </Text>
+                  <Text>
+                    The initial card design was meant to reflect Eco's ethos at
+                    that point in time: still at the R&D stage, scrappy, early,
+                    etc. The second card design was meant to be more elegant,
+                    evergreen, and minimal - it was also printed on a metal card
+                    with a matte finish, giving it a premium feel.
+                  </Text>
+                </TextBlock>
+              </div>
+
+              <section className={styles.section}>
+                <figure>
+                  <Browser url="https://eco.com">
+                    <div className={styles.video}>
+                      <ZoomableImage
+                        videoSrc="/eco-card-viewer.mp4"
+                        subtitle="The primary entry point into the Credit summary view is via a user's dashboard."
+                      />
+                    </div>
+                  </Browser>
+                  <figcaption className={styles.sectionCaption}>
+                    <Text intensity="medium">
+                      The card viewer I built to preview the various Eco Card
+                      designs I made.{' '}
+                      <a
+                        href="https://work.petelada.com/eco/build"
+                        target="_blank"
+                      >
+                        View it here
+                      </a>{' '}
+                      (desktop only).
+                    </Text>
+                  </figcaption>
+                </figure>
+              </section>
+
+              <div className={styles.section}>
+                <TextBlock>
+                  <SectionTitle>Eco Points Store</SectionTitle>
+                  <Text>
+                    I designed a Points Store experience in app where users
+                    could redeem the Eco Points they accrue for things like Eco
+                    Credit and "prestige" goods (Apple AirPods Max, etc).
+                  </Text>
+                  <ArrowList
+                    items={[
+                      <Text key="1">
+                        <b>+21% MAU</b> after launch
+                      </Text>,
+                      <Text key="2">
+                        <b>+212% App Installs</b> in the week immediately
+                        following release
+                      </Text>,
+                      <Text key="3">
+                        Generated <b>4.5x the support traffic</b> (generally can
+                        be abstracted to product engagement).
+                      </Text>
+                    ]}
+                  />
+                  <Text>
+                    Read the{' '}
+                    <Link href="/work/eco-points-store">full case study</Link>{' '}
+                    on this project.
                   </Text>
                 </TextBlock>
               </div>
 
               <section className={styles.section}>
                 <div className={styles.figureGrid}>
-                  <figure>
-                    <IPhone>
-                      <video autoPlay loop muted playsInline>
-                        <source src="/eco-credit-summary.mp4" />
-                      </video>
-                    </IPhone>
-                    <figcaption className={styles.sectionCaption}>
-                      <Text intensity="medium">
-                        The primary entry point into the Credit summary view is
-                        via a user's dashboard.
-                      </Text>
-                    </figcaption>
-                  </figure>
-                  <figure>
-                    <IPhone>
-                      <video autoPlay loop muted playsInline>
-                        <source src="/eco-credit-sold-out.mp4" />
-                      </video>
-                    </IPhone>
-                    <figcaption className={styles.sectionCaption}>
-                      <Text intensity="medium">
-                        Credit can "sell out" each month. This gives Eco some
-                        protection and prevents mass points liquidation.
-                      </Text>
-                    </figcaption>
-                  </figure>
-                  <figure>
-                    <IPhone>
-                      <video autoPlay loop muted playsInline>
-                        <source src="/eco-credit-purchase.mp4" />
-                      </video>
-                    </IPhone>
-                    <figcaption className={styles.sectionCaption}>
-                      <Text intensity="medium">
-                        Purchasing credit is a simple flow, which deducts Points
-                        from a user's Point balance.
-                      </Text>
-                    </figcaption>
-                  </figure>
-                  <figure>
-                    <IPhone>
-                      <video autoPlay loop muted playsInline>
-                        <source src="/eco-credit-merchant.mp4" />
-                      </video>
-                    </IPhone>
-                    <figcaption className={styles.sectionCaption}>
-                      <Text intensity="medium">
-                        Credit is represented in the UI with a purple treatment,
-                        and the credit icon.
-                      </Text>
-                    </figcaption>
-                  </figure>
+                  <FigureWithVideo
+                    frameColor="#333"
+                    videoSrc="/eco-drop-purchase.mp4"
+                    caption="Purchasing a Drop in the Points Store. Drops occured once every two weeks."
+                  />
+
+                  <FigureWithVideo
+                    frameColor="#333"
+                    videoSrc="/eco-credit-summary.mp4"
+                    caption="Viewing your available Eco Credit. Credit would be applied towards future purchases on Eco."
+                  />
                 </div>
               </section>
 

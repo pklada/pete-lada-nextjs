@@ -1,6 +1,8 @@
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
   .introImage {
     height: auto !important;
-    margin-bottom: calc(-128px - var(--size-normal)) !important;
+    margin-bottom: calc((-1 * var(--post-header-vertical-padding))) !important;
+    margin-left: -20px;
+    margin-right: -20px;
   }
 }

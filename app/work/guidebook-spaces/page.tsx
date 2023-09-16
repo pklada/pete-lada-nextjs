@@ -9,6 +9,7 @@ import { Post } from '@/components/Post/Post';
 import { AccentColorContext } from '@/contexts/AccentColorContext';
 import { PostInfo } from '@/components/Post/Info/PostInfo';
 import { Quote } from '@/components/Quote/Quote';
+import postStyles from './styles.module.css';
 
 export default function Project() {
   return (
@@ -33,14 +34,14 @@ export default function Project() {
         {(value) => (
           <>
             <div className={`${styles.header} ${styles['header-dark']}`}>
-              <div className={styles.intro}>
+              <div className={`${styles.intro} ${postStyles.header}`}>
                 <h2 className={styles.title}>Guidebook Spaces</h2>
                 <Text size="large" className={styles.subtitle}>
                   Adding a new layer to the Guidebook platform
                 </Text>
               </div>
             </div>
-            <div className={styles.body}>
+            <div className={`${styles.body} ${postStyles.body}`}>
               <div className={styles.section}>
                 <PostInfo
                   items={[
@@ -62,6 +63,10 @@ export default function Project() {
                     }
                   ]}
                 />
+                <div className={postStyles.phones}>
+                  <img src="/guidebook-spaces-iphone-drawer.png" />
+                  <img src="/guidebook-spaces-iphone-home.png" />
+                </div>
                 <TextBlock>
                   <SectionTitle>Summary</SectionTitle>
                   <Text>
@@ -252,7 +257,9 @@ export default function Project() {
                   around onboarding. These were the actual files shared with the
                   team at the time.
                 </Text>
-                <div className={styles.figureGrid}>
+                <div
+                  className={`${styles.figureGrid} ${styles.figureGridMobileCol}`}
+                >
                   <figure>
                     <div className={styles.video}>
                       <video controls>
@@ -335,12 +342,16 @@ export default function Project() {
                 </TextBlock>
               </div>
 
-              <figure className={`${styles.section} ${styles.fullWidth}`}>
-                <div className={`${styles.image} ${styles.frameless}`}>
-                  <ZoomableImage
-                    imgSrc="/guidebook-spaces-examples.png"
-                    subtitle="Our theming system allowed for full re-skinning of the UI, down to the keyline. Dark themes were especially challenging."
-                  />
+              <figure
+                className={`${styles.section} ${styles.fullWidth} ${styles.scrolls}`}
+              >
+                <div>
+                  <div className={`${styles.image} ${styles.frameless}`}>
+                    <ZoomableImage
+                      imgSrc="/guidebook-spaces-examples.png"
+                      subtitle="Our theming system allowed for full re-skinning of the UI, down to the keyline. Dark themes were especially challenging."
+                    />
+                  </div>
                 </div>
               </figure>
 

@@ -35,7 +35,7 @@ export const Post = ({
 }: PostProps) => {
   const [isScrolled, setIsScrolled] = React.useState(false);
   const [progress, setProgress] = React.useState(0);
-  const { setShouldShowBackground, setAccentRgb } =
+  const { setShouldShowBackground, setAccentRgb, setSubtitle } =
     React.useContext(NavbarContext);
   const { setPercentWidth } = React.useContext(TopBarContext);
 
@@ -66,12 +66,14 @@ export const Post = ({
   React.useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     setAccentRgb(accentRgb);
+    setSubtitle(title);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
       setPercentWidth(100);
       setAccentRgb(undefined);
       setShouldShowBackground(false);
+      setSubtitle(undefined);
     };
   }, []);
 
@@ -91,7 +93,6 @@ export const Post = ({
               <Text weight="black" className={styles.stickyHeaderTitle}>
                 {title}
               </Text>
-              <Text className={styles.stickyHeaderSubtitle}>{subtitle}</Text>
             </div>
             {nextSlug && (
               <Link

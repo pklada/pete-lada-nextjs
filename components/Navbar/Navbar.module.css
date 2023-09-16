@@ -41,20 +41,42 @@
   opacity: 0;
 }
 
-.navbarTitle {
+.navbarContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.navbarTitle,
+.navbarSubtitle {
   opacity: 0;
   transition: all ease-out var(--anim-duration-normal);
 }
 
-.navbarTitle {
+.navbarTitle,
+.navbarSubtitle {
   color: var(--color-foreground);
 }
 
-.showBackground .navbarTitle {
-  color: var(--color-foreground) !important;
+.isOverDark .navbarTitle,
+.isOverDark .navbarSubtitle {
+  color: var(--color-background);
+}
+
+.showBackground .navbarTitle,
+.showBackground .navbarSubtitle {
+  color: var(--color-foreground);
   opacity: 1;
 }
 
-.isOverDark .navbarTitle {
-  color: var(--color-background);
+.showBackground .navbarSubtitle {
+  color: var(--color-accent);
+}
+
+.navbarSubtitle {
+  font-size: var(--font-size-normal);
+  font-weight: var(--font-weight-bold);
+}
+
+.hasSubtitle.showBackground .navbarTitle {
+  opacity: 0.5;
 }

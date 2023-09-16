@@ -13,16 +13,12 @@ import ModalWrapper from '../ModalWrapper';
 interface ZoomableImageProps {
   imgSrc?: string;
   imgSrc2x?: string;
-  subtitle: string;
+  subtitle?: string;
   videoSrc?: string;
 }
 
-interface ImageOverlayProps {
-  imgSrc?: string;
-  imgSrc2x?: string;
+interface ImageOverlayProps extends ZoomableImageProps {
   onClose: () => void;
-  subtitle: string;
-  videoSrc?: string;
 }
 
 export const ZoomableImage = ({
@@ -239,7 +235,11 @@ const ImageOverlay = ({
     window.removeEventListener('touchend', handleMouseUp);
     window.removeEventListener('touchcancel', handleMouseUp);
 
-    if (videoSrc && offsetRef.current.x !== 0 && offsetRef.current.y !== 0) {
+    if (
+      zoomType === ZoomType.fit &&
+      offsetRef.current.x !== 0 &&
+      offsetRef.current.y !== 0
+    ) {
       withAnimation(() => {
         setOffset({ x: 0, y: 0 });
       });
@@ -269,6 +269,7 @@ const ImageOverlay = ({
     if (shouldIgnoreClickEvent.current) {
       return;
     }
+
     setIsHidingUI(shouldRestoreUI.current || !isHidingUI);
   };
 
@@ -286,26 +287,22 @@ const ImageOverlay = ({
     >
       <div className={styles.overlayNav}>
         <div>
-          {imgSrc && (
-            <>
-              <button
-                className={
-                  zoomType === ZoomType.full ? styles.isSelected : undefined
-                }
-                onClick={handleZoomClick.bind(this, ZoomType.full)}
-              >
-                100%
-              </button>
-              <button
-                className={
-                  zoomType === ZoomType.fit ? styles.isSelected : undefined
-                }
-                onClick={handleZoomClick.bind(this, ZoomType.fit)}
-              >
-                Fit
-              </button>
-            </>
-          )}
+          <button
+            className={
+              zoomType === ZoomType.full ? styles.isSelected : undefined
+            }
+            onClick={handleZoomClick.bind(this, ZoomType.full)}
+          >
+            100%
+          </button>
+          <button
+            className={
+              zoomType === ZoomType.fit ? styles.isSelected : undefined
+            }
+            onClick={handleZoomClick.bind(this, ZoomType.fit)}
+          >
+            Fit
+          </button>
         </div>
 
         {subtitle && (
@@ -314,7 +311,31 @@ const ImageOverlay = ({
           </div>
         )}
         <div>
-          <button onClick={onClose}>Close</button>
+          <button onClick={onClose} className={styles.close}>
+            <span>Close</span>
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 14 14"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M13 1L7 7L13 13"
+                stroke="black"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M1 1L7 7L1 13"
+                stroke="black"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
         </div>
       </div>
       <div

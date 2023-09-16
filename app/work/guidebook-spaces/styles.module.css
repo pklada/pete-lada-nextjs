@@ -1,0 +1,46 @@
+.phones {
+  position: absolute;
+  top: calc(-550px - var(--size-xlarge));
+  height: 700px;
+  width: 500px;
+  left: calc(50% - 250px);
+}
+
+.phones img {
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.phones img:last-child {
+  position: absolute;
+  left: -20%;
+  z-index: 1;
+  bottom: -200px;
+}
+
+.header {
+  margin-bottom: 550px;
+}
+
+.body {
+  position: relative;
+  padding-top: 150px;
+}
+
+@media (max-width: 800px) {
+  .phones {
+    width: 100%;
+    transform: translateX(20px);
+    height: 400px;
+    top: -450px;
+  }
+
+  .body {
+    padding-top: 50px;
+  }
+
+  .header {
+    margin-bottom: 400px;
+  }
+}

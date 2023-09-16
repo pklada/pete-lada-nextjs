@@ -12,7 +12,7 @@ export const IsSsrMobileContext = React.createContext(false);
 export const useIsMobile = () => {
   const isSsrMobile = React.useContext(IsSsrMobileContext);
   const { width: windowWidth } = useWindowSize();
-  const isBrowserMobile = !!windowWidth && windowWidth < 992;
+  const isBrowserMobile = !!windowWidth && windowWidth < 800;
 
   return isSsrMobile || isBrowserMobile;
 };

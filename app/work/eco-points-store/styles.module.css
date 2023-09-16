@@ -5,8 +5,12 @@
   height: 480px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
   .headerImg {
-    height: 350px;
+    height: auto;
+    margin-bottom: -80px;
+    margin-left: -30px;
+    margin-right: -30px;
+    margin-top: var(--size-normal);
   }
 }
