@@ -1,6 +1,6 @@
 import { Text } from '@/components/Text/Text';
 import classNames from 'classnames';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import styles from './PostHeader.module.css';
 
 interface PostHeaderProps {
