@@ -17,6 +17,8 @@ interface ZoomableImageProps {
   subtitle?: string;
   videoSrc?: string;
   muxId?: string;
+  posterUrl?: string;
+  aspectRatio?: string;
 }
 
 interface ImageOverlayProps extends ZoomableImageProps {
@@ -28,7 +30,9 @@ export const ZoomableImage = ({
   subtitle,
   imgSrc2x,
   videoSrc,
-  muxId
+  posterUrl,
+  muxId,
+  aspectRatio
 }: ZoomableImageProps) => {
   const [isOpen, setIsOpen] = React.useState(false);
 
@@ -53,13 +57,28 @@ export const ZoomableImage = ({
           />
         )}
         {videoSrc && (
-          <video autoPlay loop muted playsInline onClick={handleClick}>
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            onClick={handleClick}
+            poster={posterUrl}
+          >
             <source src={videoSrc} />
           </video>
         )}
         {muxId && (
           <div onClick={handleClick}>
-            <MuxPlayer playsInline playbackId={muxId} muted loop autoPlay />
+            <MuxPlayer
+              playsInline
+              playbackId={muxId}
+              muted
+              loop
+              autoPlay
+              poster={`https://image.mux.com/${muxId}/thumbnail.png?time=0`}
+              style={{ aspectRatio, display: 'block', overflow: 'hidden' }}
+            />
           </div>
         )}
         <div className={styles.zoomIcon}>
@@ -85,6 +104,7 @@ export const ZoomableImage = ({
           onClose={handleClose}
           videoSrc={videoSrc}
           muxId={muxId}
+          posterUrl={posterUrl}
         />
       </ModalWrapper>
     </>
@@ -102,7 +122,8 @@ const ImageOverlay = ({
   onClose,
   subtitle,
   videoSrc,
-  muxId
+  muxId,
+  posterUrl
 }: ImageOverlayProps) => {
   const [zoomType, setZoomType] = React.useState<ZoomType>(ZoomType.fit);
   const [offset, _setOffset] = React.useState({ x: 0, y: 0 });
@@ -367,13 +388,20 @@ const ImageOverlay = ({
         )}
 
         {videoSrc && (
-          <video autoPlay loop muted playsInline>
+          <video autoPlay loop muted playsInline poster={posterUrl}>
             <source src={videoSrc} />
           </video>
         )}
 
         {muxId && (
-          <MuxPlayer autoPlay loop muted playsInline playbackId={muxId} />
+          <MuxPlayer
+            autoPlay
+            loop
+            muted
+            playsInline
+            playbackId={muxId}
+            poster={`https://image.mux.com/${muxId}/thumbnail.png?time=0`}
+          />
         )}
       </div>
     </motion.div>

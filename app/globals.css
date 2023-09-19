@@ -36,7 +36,7 @@
     'Segoe UI Mono', 'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace',
     'Source Code Pro', 'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
 
-  --max-readable-width: 800px;
+  --max-readable-width: 550px;
   --min-touch-size: 36px;
 
   --border-radius-normal: 12px;

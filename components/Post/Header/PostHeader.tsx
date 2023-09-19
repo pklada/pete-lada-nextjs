@@ -1,14 +1,13 @@
-import { ProfilePhoto } from '@/components/ProfilePhoto/ProfilePhoto';
 import { Text } from '@/components/Text/Text';
-import { Wave } from '@/components/Wave/Wave';
-import { useIsMobile } from '@/utils/useIsMobile';
 import classNames from 'classnames';
+import Image from 'next/image';
 import styles from './PostHeader.module.css';
 
 interface PostHeaderProps {
   title: string;
   subtitle: string;
   imgSrc?: string;
+  image?: StaticImageData;
   backgroundColor?: string;
   className?: string;
   imgContainerClassName?: string;
@@ -18,6 +17,7 @@ export const PostHeader = ({
   title,
   subtitle,
   imgSrc,
+  image,
   backgroundColor,
   className,
   imgContainerClassName
@@ -42,9 +42,20 @@ export const PostHeader = ({
         <Text size="large" className={styles.subtitle}>
           {subtitle}
         </Text>
-        <div className={`${styles.introImage} ${imgContainerClassName ?? ''}`}>
-          <img src={imgSrc} />
-        </div>
+        {imgSrc && (
+          <div
+            className={`${styles.introImage} ${imgContainerClassName ?? ''}`}
+          >
+            <Image src={imgSrc} fill alt={title} />
+          </div>
+        )}
+        {image && (
+          <div
+            className={`${styles.introImage} ${imgContainerClassName ?? ''}`}
+          >
+            <Image src={image} alt={title} />
+          </div>
+        )}
       </div>
     </div>
   );

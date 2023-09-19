@@ -14,7 +14,6 @@
 }
 
 .intro {
-  max-width: var(--max-readable-width);
   display: flex;
   flex-direction: column;
   gap: var(--size-normal);
@@ -23,12 +22,14 @@
 }
 
 .title {
+  max-width: var(--max-readable-width);
   font-size: var(--font-size-title);
   font-weight: var(--font-weight-bold);
   text-align: center;
 }
 
 .subtitle {
+  max-width: var(--max-readable-width);
   opacity: 0.7;
   text-align: center;
 }
@@ -41,6 +42,8 @@
 
 .introImage img {
   max-width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
 @media (max-width: 800px) {

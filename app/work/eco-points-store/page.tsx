@@ -11,7 +11,7 @@ import { PostInfo } from '@/components/Post/Info/PostInfo';
 import postStyles from './styles.module.css';
 import { PostHeader } from '@/components/Post/Header/PostHeader';
 import { IPhone } from '@/components/IPhone/IPhone';
-import Image from 'next/image';
+import headerImage from './project-header-eco-points-store.png';
 
 export default function Project() {
   return (
@@ -28,10 +28,10 @@ export default function Project() {
             <PostHeader
               title="Building the Eco Points Store"
               subtitle={`"Closing the loop" on Eco Points`}
-              imgSrc="/project-header-eco-points-store.png"
               className={postStyles.header}
               imgContainerClassName={postStyles.headerImg}
               backgroundColor={value.rgb}
+              image={headerImage}
             />
             <div className={styles.body}>
               <div className={styles.section}>
@@ -170,7 +170,7 @@ export default function Project() {
                   <figure>
                     <IPhone>
                       <ZoomableImage
-                        videoSrc="/eco-drop-purchase.mp4"
+                        muxId="M00maw02tJ1QVfSH8L4DGeygUDmr6VjTZ6rj8BvSMH01W00"
                         subtitle="The primary entry point into the Credit summary view is via a user's dashboard."
                       />
                     </IPhone>
@@ -227,7 +227,7 @@ export default function Project() {
                   <figure>
                     <IPhone>
                       <ZoomableImage
-                        videoSrc="/eco-credit-summary.mp4"
+                        muxId="qKgIxH94dErBeKxKa6IkzfR1yuufcw5hyCwoV9fQQkY"
                         subtitle="The primary entry point into the Credit summary view is via a user's dashboard."
                       />
                     </IPhone>
@@ -241,7 +241,7 @@ export default function Project() {
                   <figure>
                     <IPhone>
                       <ZoomableImage
-                        videoSrc="/eco-credit-sold-out.mp4"
+                        muxId="a1gCeaF7TyEpssT5aKfUYGcrWeqMHegq2bRuY00XNeuA"
                         subtitle="Credit can 'sell out' each month. This gives Eco some protection and prevents mass points liquidation."
                       />
                     </IPhone>
@@ -255,7 +255,7 @@ export default function Project() {
                   <figure>
                     <IPhone>
                       <ZoomableImage
-                        videoSrc="/eco-credit-purchase.mp4"
+                        muxId="602rRJXOoabieD8W2bqkgTWvwNumZigTalIvIziT7o7E"
                         subtitle="Purchasing credit is a simple flow, which deducts Points from a user's Point balance."
                       />
                     </IPhone>
@@ -269,7 +269,7 @@ export default function Project() {
                   <figure>
                     <IPhone>
                       <ZoomableImage
-                        videoSrc="/eco-credit-merchant.mp4"
+                        muxId="MtZ4VYv6KcgLn2VoufJK8S14YXSz01lmLIJvzxP2KEHI"
                         subtitle="Credit is represented in the UI with a purple treatment, and the credit icon."
                       />
                     </IPhone>

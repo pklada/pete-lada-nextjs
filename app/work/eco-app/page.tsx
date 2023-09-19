@@ -1,36 +1,42 @@
 'use client';
 
-import { ArrowList, List, Text, TextBlock } from '@/components/Text/Text';
+import { Browser } from '@/components/Browser/Browser';
+import { IPhone } from '@/components/IPhone/IPhone';
+import { PostHeader } from '@/components/Post/Header/PostHeader';
+import { PostInfo } from '@/components/Post/Info/PostInfo';
+import { Post } from '@/components/Post/Post';
+import { ArrowList, Text, TextBlock } from '@/components/Text/Text';
+import { ZoomableImage } from '@/components/ZoomableImage/ZoomableImage';
+import { AccentColorContext } from '@/contexts/AccentColorContext';
+import Link from 'next/link';
 import { SectionTitle } from '../layout';
 import styles from '../project.module.css';
-import { Browser } from '@/components/Browser/Browser';
-import { ZoomableImage } from '@/components/ZoomableImage/ZoomableImage';
-import { Post } from '@/components/Post/Post';
-import { AccentColorContext } from '@/contexts/AccentColorContext';
-import { PostInfo } from '@/components/Post/Info/PostInfo';
 import postStyles from './styles.module.css';
-import { PostHeader } from '@/components/Post/Header/PostHeader';
-import { IPhone } from '@/components/IPhone/IPhone';
-import Image from 'next/image';
-import Link from 'next/link';
-import MuxPlayer from '@mux/mux-player-react';
+import headerImage from './project-header-eco-app.png';
 
 const FigureWithVideo = ({
   frameColor,
   videoSrc,
   caption,
   includeDynamicIsland = true,
-  muxId
+  muxId,
+  posterUrl
 }: {
   frameColor?: string;
   videoSrc?: string;
   caption: string;
   includeDynamicIsland?: boolean;
   muxId?: string;
+  posterUrl?: string;
 }) => (
   <figure>
     <IPhone frameColor={frameColor} includeDynamicIsland={includeDynamicIsland}>
-      <ZoomableImage videoSrc={videoSrc} subtitle={caption} muxId={muxId} />
+      <ZoomableImage
+        videoSrc={videoSrc}
+        subtitle={caption}
+        muxId={muxId}
+        posterUrl={posterUrl}
+      />
     </IPhone>
     <figcaption className={styles.sectionCaption}>
       <Text intensity="medium">{caption}</Text>
@@ -75,15 +81,15 @@ export default function Project() {
       accentRgb="6,36,224"
     >
       <AccentColorContext.Consumer>
-        {(value) => (
+        {(_) => (
           <>
             <PostHeader
               title="Designing and developing the Eco App"
               subtitle={`Creating a zero to one fintech product`}
-              imgSrc="/project-header-eco-app.png"
               className={postStyles.header}
               imgContainerClassName={postStyles.headerImg}
               backgroundColor="6,36,224"
+              image={headerImage}
             />
             <div className={styles.body}>
               <div className={styles.section}>
@@ -158,17 +164,17 @@ export default function Project() {
                 </TextBlock>
               </div>
 
-              <section className={styles.section}>
+              <section className={`${styles.section} ${styles.wide}`}>
                 <div className={styles.figureGrid}>
                   <FigureWithVideo
                     frameColor="#041178"
-                    videoSrc="/eco-helix.mov"
+                    muxId="RCxfow1PhIf872S3jkzwlokhVzW1OMG6RxYt4g25G4Y"
                     caption="The helix served as the user's home view. I spent a lot of time getting the transitions between the helix and neighboring views feel seamless."
                   />
 
                   <FigureWithVideo
                     frameColor="#041178"
-                    videoSrc="/eco-helix-refresh.mov"
+                    muxId="Vy4eW0201dK3bis4PTwIDEHHVuqvZpzwCfLDg3sYwFg5Q"
                     caption="I was particularly fond of the pull to refresh animation I created here, both in the interaction design and the 'ripple' effect while refreshing."
                   />
                 </div>
@@ -213,7 +219,7 @@ export default function Project() {
                 </TextBlock>
               </div>
 
-              <section className={styles.section}>
+              <section className={`${styles.section} ${styles.wide}`}>
                 <div className={styles.figureGrid}>
                   <FigureWithImage
                     frameColor="#333"
@@ -260,13 +266,13 @@ export default function Project() {
                 </TextBlock>
               </div>
 
-              <section className={styles.section}>
+              <section className={`${styles.section} ${styles.wide}`}>
                 <div className={styles.figureGrid}>
                   <FigureWithVideo
                     frameColor="#333"
                     caption="The flow for sending Points to another user on Eco."
                     includeDynamicIsland={false}
-                    muxId="e00c8MAAovRRFvqypSVxEEE3s00YwWPQhOh2Fi4n7BLKA"
+                    muxId="02wDPKX6kBZ01biwERkEYmefGB16ghIKM4AfvrEDX66VM"
                   />
                   <FigureWithImage
                     frameColor="#333"
@@ -297,13 +303,15 @@ export default function Project() {
                 </TextBlock>
               </div>
 
-              <section className={styles.section}>
+              <section className={`${styles.section} ${styles.wide}`}>
                 <figure>
                   <Browser url="https://eco.com">
                     <div className={styles.video}>
                       <ZoomableImage
-                        videoSrc="/eco-card-viewer.mp4"
-                        subtitle="The primary entry point into the Credit summary view is via a user's dashboard."
+                        muxId="01DnQF5EDfE01xolniDhoVhwLMtUjJJ6UaT43zX01EfEyo"
+                        subtitle="The card viewer I built to preview the various Eco Card
+                        designs I made."
+                        aspectRatio="19/15"
                       />
                     </div>
                   </Browser>
@@ -354,17 +362,17 @@ export default function Project() {
                 </TextBlock>
               </div>
 
-              <section className={styles.section}>
+              <section className={`${styles.section} ${styles.wide}`}>
                 <div className={styles.figureGrid}>
                   <FigureWithVideo
                     frameColor="#333"
-                    videoSrc="/eco-drop-purchase.mp4"
+                    muxId="M00maw02tJ1QVfSH8L4DGeygUDmr6VjTZ6rj8BvSMH01W00"
                     caption="Purchasing a Drop in the Points Store. Drops occured once every two weeks."
                   />
 
                   <FigureWithVideo
                     frameColor="#333"
-                    videoSrc="/eco-credit-summary.mp4"
+                    muxId="iEpHe7FwRdGGjCVR6FekKi100AzrsrBW5t7o7wbPx8RI"
                     caption="Viewing your available Eco Credit. Credit would be applied towards future purchases on Eco."
                   />
                 </div>
