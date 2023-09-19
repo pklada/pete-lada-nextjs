@@ -71,7 +71,7 @@ export const ArrowList = ({ items }: { items: React.ReactNode[] }) => {
                   d="M1 4.5H8M8 4.5L4.5 1M8 4.5L4.5 8"
                   stroke="black"
                   stroke-width="1.5"
-                  stroke-linecap="round"
+                  strokeLinecap="round"
                 />
               </svg>
             </div>

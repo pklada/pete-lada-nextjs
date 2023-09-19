@@ -38,6 +38,7 @@
   height: 380px;
   overflow: hidden;
   margin-bottom: calc(-1 * var(--post-header-vertical-padding));
+  max-width: 800px;
 }
 
 .introImage img {
