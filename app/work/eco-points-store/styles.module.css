@@ -1,14 +1,12 @@
-.header {
-}
 
-.headerImg {
-  height: 600px;
+.header .headerImg {
+  height: 650px;
 }
 
 @media (max-width: 800px) {
-  .headerImg {
+  .header .headerImg {
     height: auto;
-    margin-bottom: -80px;
+    margin-bottom: calc(-1 * var(--post-header-vertical-padding) - 120px);
     margin-left: -30px;
     margin-right: -30px;
     margin-top: var(--size-normal);

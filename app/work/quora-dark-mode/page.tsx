@@ -10,6 +10,8 @@ import { AccentColorContext } from '@/contexts/AccentColorContext';
 import { OnionImage } from '@/components/OnionImage/OnionImage';
 import { PostInfo } from '@/components/Post/Info/PostInfo';
 import postStyles from './styles.module.css';
+import { PostHeader } from '@/components/Post/Header/PostHeader';
+import headerImage from "./project-cover-quora-dark-mode.png";
 
 export default function Project() {
   return (
@@ -29,27 +31,14 @@ export default function Project() {
       <AccentColorContext.Consumer>
         {(value) => (
           <>
-            <div
-              className={`${styles.header} ${styles['header-dark']}`}
-              style={{
-                backgroundColor: value.rgb ? `rgba(${value.rgb}, 1)` : undefined
-              }}
-            >
-              <div className={styles.intro}>
-                <h2 className={styles.title}>Quora Dark Mode</h2>
-                <Text size="large" className={styles.subtitle}>
-                  Adding themeability to a massive consumer platform
-                </Text>
-                <div
-                  className={`${styles.introImage} ${postStyles.introImage}`}
-                >
-                  <img
-                    src="/project-cover-quora-dark-mode@.png"
-                    srcSet="/project-cover-quora-dark-mode.png, /project-cover-quora-dark-mode@2x.png 2x"
-                  />
-                </div>
-              </div>
-            </div>
+            <PostHeader
+              title="Quora Dark Mode"
+              subtitle="Adding themeability to a massive consumer platform"
+              className={postStyles.header}
+              imgContainerClassName={postStyles.headerImg}
+              backgroundColor={value.rgb}
+              image={headerImage}
+            />
             <div className={styles.body}>
               <div className={styles.section}>
                 <PostInfo

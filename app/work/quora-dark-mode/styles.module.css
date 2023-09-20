@@ -1,8 +1,13 @@
+.header .headerImg {
+    height: 600px;
+    margin-bottom: calc(-1 * (var(--post-header-vertical-padding) + 20px));
+}
+
 @media screen and (max-width: 800px) {
-  .introImage {
-    height: auto !important;
-    margin-bottom: calc((-1 * var(--post-header-vertical-padding))) !important;
-    margin-left: -20px;
-    margin-right: -20px;
+  .header .headerImg {
+    height: auto;
+    margin-bottom: calc((-1 * var(--post-header-vertical-padding)));
+    margin-left: 0;
+    margin-right: 0;
   }
 }

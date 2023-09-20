@@ -1,11 +1,19 @@
-.introImage {
-  width: 600px;
+.headerImg img {
+    width: 600px;
 }
 
+.headerImg {
+    height: 450px;
+} 
+
 @media screen and (max-width: 800px) {
-  .introImage {
-    height: auto !important;
-    margin-bottom: -200px !important;
+  .headerImg {
     width: auto;
+    height: 300px;
+    margin-top: var(--size-large);
+  }
+
+  .headerImg img {
+    width: 100%;
   }
 }

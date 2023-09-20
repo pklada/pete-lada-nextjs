@@ -9,6 +9,8 @@ import { AccentColorContext } from '@/contexts/AccentColorContext';
 import { SectionTitle } from '../layout';
 import styles from '../project.module.css';
 import postStyles from './styles.module.css';
+import { PostHeader } from '@/components/Post/Header/PostHeader';
+import HeaderImage from "./header-image.png"
 
 export default function Project() {
   return (
@@ -22,24 +24,14 @@ export default function Project() {
       <AccentColorContext.Consumer>
         {(value) => (
           <>
-            <div
-              className={`${styles.header} ${styles['header-dark']}`}
-              style={{
-                backgroundColor: value.rgb ? `rgba(${value.rgb}, 1)` : undefined
-              }}
-            >
-              <div className={styles.intro}>
-                <h2 className={styles.title}>Quora Messages Redesign</h2>
-                <Text size="large" className={styles.subtitle}>
-                  Improving a complex multiplatform communication tool
-                </Text>
-                <div
-                  className={`${styles.introImage} ${postStyles.introImage}`}
-                >
-                  <img src="https://work.petelada.com/assets/images/quora-messages-iphone.png" />
-                </div>
-              </div>
-            </div>
+            <PostHeader
+              title="Quora Messages Redesign"
+              subtitle={`Improving a complex multiplatform communication tool`}
+              className={postStyles.header}
+              imgContainerClassName={postStyles.headerImg}
+              backgroundColor={value.rgb}
+              image={HeaderImage}
+            />
             <div className={styles.body}>
               <div className={styles.section}>
                 <PostInfo

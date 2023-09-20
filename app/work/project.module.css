@@ -32,17 +32,6 @@
   text-align: center;
 }
 
-.introImage {
-  height: 380px;
-  overflow: hidden;
-  margin-bottom: calc(-1 * var(--post-header-vertical-padding));
-}
-
-.introImage img {
-  max-width: 100%;
-  display: block;
-}
-
 .body {
   margin-left: var(--size-large);
   margin-right: var(--size-large);

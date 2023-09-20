@@ -35,22 +35,22 @@
 }
 
 .introImage {
-  height: 380px;
+  height: 600px;
   overflow: hidden;
   margin-bottom: calc(-1 * var(--post-header-vertical-padding));
   max-width: 800px;
 }
 
 .introImage img {
-  max-width: 100%;
   height: auto;
+  width: 100%;
   object-fit: contain;
 }
 
 @media (max-width: 800px) {
   .header {
-    padding: var(--size-xlarge) var(--size-large);
-    padding-top: calc(var(--size-xlarge) + var(--navbar-height));
+    padding: var(--post-header-vertical-padding) var(--size-large);
+    padding-top: calc(var(--navbar-height) + var(--size-large));
   }
 
   .intro {
