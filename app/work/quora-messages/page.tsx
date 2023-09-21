@@ -10,7 +10,7 @@ import { SectionTitle } from '../layout';
 import styles from '../project.module.css';
 import postStyles from './styles.module.css';
 import { PostHeader } from '@/components/Post/Header/PostHeader';
-import HeaderImage from "./header-image.png"
+import HeaderImage from './header-image.png';
 
 export default function Project() {
   return (

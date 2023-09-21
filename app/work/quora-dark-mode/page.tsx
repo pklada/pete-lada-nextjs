@@ -11,7 +11,7 @@ import { OnionImage } from '@/components/OnionImage/OnionImage';
 import { PostInfo } from '@/components/Post/Info/PostInfo';
 import postStyles from './styles.module.css';
 import { PostHeader } from '@/components/Post/Header/PostHeader';
-import headerImage from "./project-cover-quora-dark-mode.png";
+import headerImage from './project-cover-quora-dark-mode.png';
 
 export default function Project() {
   return (

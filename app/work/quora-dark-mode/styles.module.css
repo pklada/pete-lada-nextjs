@@ -1,6 +1,6 @@
 .header .headerImg {
-    height: 600px;
-    margin-bottom: calc(-1 * (var(--post-header-vertical-padding) + 20px));
+  height: 600px;
+  margin-bottom: calc(-1 * (var(--post-header-vertical-padding) + 20px));
 }
 
 @media screen and (max-width: 800px) {

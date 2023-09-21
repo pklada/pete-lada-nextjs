@@ -1,11 +1,18 @@
 'use client';
 
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import styles from './home.module.css';
 import { Text, TextBlock } from '@/components/Text/Text';
 import Link from 'next/link';
 import React from 'react';
 import { SidebarContext } from '@/components/Sidebar/Sidebar';
+
+import EcoAppCover from '@/app/work/eco-app/cover.png';
+import PointsStoreCover from '@/app/work/eco-points-store/cover.png';
+import QuoraMessagesCover from '@/app/work/quora-messages/cover.png';
+import QuoraDarkModeCover from '@/app/work/quora-dark-mode/cover.png';
+import GBScheduleCover from '@/app/work/guidebook-schedule-redesign/cover.png';
+import GBSpacesCover from '@/app/work/guidebook-spaces/cover.png';
 
 export default function Home() {
   const sidebarContext = React.useContext(SidebarContext);
@@ -29,7 +36,7 @@ export default function Home() {
         <ProjectCard
           title="Eco App"
           subtitle="Designing and developing the Eco App"
-          imgSrc="/project-cover-eco-app@2x.png"
+          image={EcoAppCover}
           company="Eco"
           year="2021-2023"
           slug="eco-app"
@@ -38,7 +45,7 @@ export default function Home() {
         <ProjectCard
           title="Eco Points Store"
           subtitle="Closing the loop on Eco Points"
-          imgSrc="/project-cover-eco-points-store@2x.png"
+          image={PointsStoreCover}
           company="Eco"
           year="2023"
           slug="eco-points-store"
@@ -47,7 +54,7 @@ export default function Home() {
         <ProjectCard
           title="Quora Messages"
           subtitle="Improving a complex multiplatform communication tool"
-          imgSrc="/project-cover-quora-messages@2x.png"
+          image={QuoraMessagesCover}
           company="Quora"
           year="2021"
           slug="quora-messages"
@@ -56,7 +63,7 @@ export default function Home() {
         <ProjectCard
           title="Quora Dark Mode"
           subtitle="Adding themeability to a massive consumer platform"
-          imgSrc="/project-cover-quora-dark-mode@2x.png"
+          image={QuoraDarkModeCover}
           company="Quora"
           year="2020"
           slug="quora-dark-mode"
@@ -65,7 +72,7 @@ export default function Home() {
         <ProjectCard
           title="Guidebook Schedule Redesign"
           subtitle="Improving a feature used by millions"
-          imgSrc="/project-cover-schedule-redesign@2x.png"
+          image={GBScheduleCover}
           company="Guidebook"
           year="2019"
           slug="guidebook-schedule-redesign"
@@ -74,7 +81,7 @@ export default function Home() {
         <ProjectCard
           title="Guidebook Spaces"
           subtitle="Adding a new layer to the Guidebook platform"
-          imgSrc="/project-cover-spaces@2x.png"
+          image={GBSpacesCover}
           company="Guidebook"
           year="2018"
           slug="guidebook-spaces"
@@ -114,21 +121,21 @@ export default function Home() {
 const ProjectCard = ({
   title,
   subtitle,
-  imgSrc,
+  image,
   company,
   year,
   slug
 }: {
   title: string;
   subtitle: string;
-  imgSrc: string;
+  image: StaticImageData;
   company: string;
   year: string;
   slug: string;
 }) => (
   <Link className={styles.card} href={`/work/${slug}`}>
     <div className={styles.cardImage}>
-      <Image src={imgSrc} fill alt={title} />
+      <Image src={image} fill alt={title} priority placeholder="blur" />
     </div>
     <div className={styles.cardMeta}>
       <Text weight="bold">{title}</Text>
