@@ -398,7 +398,7 @@ const ImageOverlay = ({
             autoPlay
             loop
             muted
-            preload='auto'
+            preload="auto"
             playsInline
             playbackId={muxId}
             poster={`https://image.mux.com/${muxId}/thumbnail.png?time=0`}

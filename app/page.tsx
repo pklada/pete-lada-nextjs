@@ -1,20 +1,15 @@
-'use client';
-
-import Image, { StaticImageData } from 'next/image';
-import styles from './home.module.css';
 import { Text, TextBlock } from '@/components/Text/Text';
-import Link from 'next/link';
-import React from 'react';
+import styles from './home.module.css';
 
 import EcoAppCover from '@/app/work/eco-app/cover.png';
 import PointsStoreCover from '@/app/work/eco-points-store/cover.png';
-import QuoraMessagesCover from '@/app/work/quora-messages/cover.png';
-import QuoraDarkModeCover from '@/app/work/quora-dark-mode/cover.png';
 import GBScheduleCover from '@/app/work/guidebook-schedule-redesign/cover.png';
 import GBSpacesCover from '@/app/work/guidebook-spaces/cover.png';
+import QuoraDarkModeCover from '@/app/work/quora-dark-mode/cover.png';
+import QuoraMessagesCover from '@/app/work/quora-messages/cover.png';
+import { ProjectCard } from '@/components/ProjectCard/ProjectCard';
 
 export default function Page() {
-
   return (
     <div className={styles.wrapper}>
       <TextBlock>
@@ -111,43 +106,3 @@ export default function Page() {
     </div>
   );
 }
-
-const ProjectCard = ({
-  title,
-  subtitle,
-  image,
-  company,
-  year,
-  slug
-}: {
-  title: string;
-  subtitle: string;
-  image: StaticImageData;
-  company: string;
-  year: string;
-  slug: string;
-}) => (
-  <Link className={styles.card} href={`/work/${slug}`} prefetch={false}>
-    <div className={styles.cardImage}>
-      <Image src={image} fill alt={title} priority placeholder="blur" />
-    </div>
-    <div className={styles.cardMeta}>
-      <Text weight="bold">{title}</Text>
-      <Text intensity="medium" size="small">
-        {subtitle}
-      </Text>
-    </div>
-    <div className={styles.cardPills}>
-      <div className={styles.cardPill}>
-        <Text size="small" isMonospace>
-          {company}
-        </Text>
-      </div>
-      <div className={styles.cardPill}>
-        <Text size="small" isMonospace>
-          {year}
-        </Text>
-      </div>
-    </div>
-  </Link>
-);

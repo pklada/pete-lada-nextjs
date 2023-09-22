@@ -15,92 +15,122 @@ import { useIsMobile } from '@/utils/useIsMobile';
 import { OverlayContext } from '../Overlay/Overlay';
 
 export const Sidebar = ({ className }: { className: string }) => {
-
   const path = usePathname();
   const isMobile = useIsMobile();
 
   const sidebarClass = classNames({
     [styles.sidebar]: true,
-    [styles.isCollapsable]: path !== "/" && isMobile,
+    [styles.isCollapsable]: path !== '/' && isMobile,
     [`${className}`]: className!!
-  })
+  });
 
-  return (<div
-    className={sidebarClass}
-  >
-    <div className={styles.sidebarInner}>
-      <div className={styles.sidebarMain}>
-        <Link href="/" className={styles.sidebarPhoto} prefetch={false}>
-          <ProfilePhoto />
-        </Link>
-        <div>
-          <Text size="large">
-            I'm Pete Lada, a product design generalist.
-          </Text>
-        </div>
-        <Wave />
-        <TextBlock>
-          <Text intensity="medium">
-            I'm currently a staff product designer at{' '}
-            <span className={styles.sidebarCompany}>
-              <SidebarIcon /> <a href="https://ecoapp.com/">Eco</a>
-              <span>.</span>
-            </span>{' '}
-            Previously, I was a design lead at Quora, and co-founded and led
-            product design at Guidebook, a mobile event guide platform.
-          </Text>
-          <Text>
-            <MoreButton />
-          </Text>
-        </TextBlock>
-      </div>
-      <div className={styles.sidebarFooter}>
-        <Text className={styles.copyright}>© 2023 Pete Lada</Text>
-        <div className={styles.sidebarLinkWrapper}>
-          <div className={styles.sidebarSocial}>
-            <Link href={'https://github.com/pklada'}>
-              <Github />
-            </Link>
-            <Link href={'https://x.com/pklada'}>
-              <X />
-            </Link>
-            <Link href={'mailto:pklada@gmail.com'}>
-              <Gmail />
-            </Link>
+  return (
+    <div className={sidebarClass}>
+      <div className={styles.sidebarInner}>
+        <div className={styles.sidebarMain}>
+          <Link href="/" className={styles.sidebarPhoto} prefetch={false}>
+            <ProfilePhoto />
+          </Link>
+          <div>
+            <Text size="large">
+              I'm Pete Lada, a product design generalist.
+            </Text>
           </div>
-          <MoreButton />
+          <Wave />
+          <TextBlock>
+            <Text intensity="medium">
+              I'm currently a staff product designer at{' '}
+              <span className={styles.sidebarCompany}>
+                <SidebarIcon /> <a href="https://ecoapp.com/">Eco</a>
+                <span>.</span>
+              </span>{' '}
+              Previously, I was a design lead at Quora, and co-founded and led
+              product design at Guidebook, a mobile event guide platform.
+            </Text>
+            <Text>
+              <MoreButton />
+            </Text>
+          </TextBlock>
+        </div>
+        <div className={styles.sidebarFooter}>
+          <Text className={styles.copyright}>© 2023 Pete Lada</Text>
+          <div className={styles.sidebarLinkWrapper}>
+            <div className={styles.sidebarSocial}>
+              <Link href={'https://github.com/pklada'}>
+                <Github />
+              </Link>
+              <Link href={'https://x.com/pklada'}>
+                <X />
+              </Link>
+              <Link href={'mailto:pklada@gmail.com'}>
+                <Gmail />
+              </Link>
+            </div>
+            <MoreButton />
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  )
+  );
 };
 
 const MoreButton = () => {
   const overlayContext = React.useContext(OverlayContext);
-  return (<a className={styles.moreButton} onClick={() => {
-    overlayContext.setOverlay({
-      title: "More about me",
-      content: <MoreInfo />
-    })
-  }}>More about me</a>
-  )
-}
+  return (
+    <a
+      className={styles.moreButton}
+      onClick={() => {
+        overlayContext.setOverlay({
+          title: 'More about me',
+          content: <MoreInfo />
+        });
+      }}
+    >
+      More about me
+    </a>
+  );
+};
 
 const MoreInfo = () => (
   <TextBlock>
     <Text>
-      Hey, I'm Pete Lada. I have been a product designer for over 15 years, working on a variety of software projects both large and personal.
+      Hey, I'm Pete Lada. I have been a product designer for over 15 years,
+      working on a variety of software projects both large and personal.
     </Text>
-    <Text>I'm an extremely technical designer, and love being able to work on projects where I can contribute as much to the implementation as to the design.</Text>
-    <Text>I've always been fascinated with the connection between art and technology. This manifested earliest while trying to hack together webpages to display my early pieces of art while I was in high school.</Text>
-    <Text>That quickly turned into freelance design work, and with that the ability to bootstrap my own ideas.</Text>
-    <Text>I co-founded Guidebook after college, and ran product design there for nearly 9 years. We grew the company from nothing to a $12MM ARR business, which I am deeply proud of. Guidebook is still going strong, but in 2019 I decided to turn my attention to new projects.</Text>
-    <Text>I joined Quora, which allowed me to work on a massive product, tackling design and platform challenges at scale.</Text>
-    <Text>I'm currently at Eco, back to my start-up roots, where I get to build a web3 fintech product from the ground up.</Text>
-    <Text>Outside of work, I love running and long walks, gardening, good beer and coffee, and my growing family.</Text>
+    <Text>
+      I'm an extremely technical designer, and love being able to work on
+      projects where I can contribute as much to the implementation as to the
+      design.
+    </Text>
+    <Text>
+      I've always been fascinated with the connection between art and
+      technology. This manifested earliest while trying to hack together
+      webpages to display my early pieces of art while I was in high school.
+    </Text>
+    <Text>
+      That quickly turned into freelance design work, and with that the ability
+      to bootstrap my own ideas.
+    </Text>
+    <Text>
+      I co-founded Guidebook after college, and ran product design there for
+      nearly 9 years. We grew the company from nothing to a $12MM ARR business,
+      which I am deeply proud of. Guidebook is still going strong, but in 2019 I
+      decided to turn my attention to new projects.
+    </Text>
+    <Text>
+      I joined Quora, which allowed me to work on a massive product, tackling
+      design and platform challenges at scale.
+    </Text>
+    <Text>
+      I'm currently at Eco, back to my start-up roots, where I get to build a
+      web3 fintech product from the ground up.
+    </Text>
+    <Text>
+      Outside of work, I love running and long walks, gardening, good beer and
+      coffee, and my growing family.
+    </Text>
   </TextBlock>
-)
+);
 
 const SidebarIcon = () => (
   <span className={styles.sidebarIcon}>

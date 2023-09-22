@@ -1,77 +1,77 @@
 .layout {
-    display: grid;
-    grid-template-columns: var(--sidebar-width) auto;
-    grid-template-rows: 3px auto;
-    grid-template-areas:
-        'topbar main'
-        'sidebar main';
+  display: grid;
+  grid-template-columns: var(--sidebar-width) auto;
+  grid-template-rows: 3px auto;
+  grid-template-areas:
+    'topbar main'
+    'sidebar main';
 }
 
 .topBar {
-    grid-area: topbar;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    z-index: 100;
-    mix-blend-mode: multiply;
+  grid-area: topbar;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 100;
+  mix-blend-mode: multiply;
 }
 
 .topBarFill {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: var(--color-accent);
-    transition: background-color ease var(--anim-duration-normal);
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--color-accent);
+  transition: background-color ease var(--anim-duration-normal);
 }
 
 .main {
-    grid-area: main;
-    overflow-y: auto;
-    overflow-x: hidden;
+  grid-area: main;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .loader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: var(--color-background);
-    z-index: 999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: opacity ease-out var(--anim-duration-normal);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--color-background);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity ease-out var(--anim-duration-normal);
 }
 
 .hasLoaded .loader {
-    opacity: 0;
-    pointer-events: none;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .loader svg {
-    opacity: 0.2;
+  opacity: 0.2;
 }
 
 @media (max-width: 800px) {
-    .layout {
-        grid-template-columns: 100%;
-        grid-template-rows: auto;
-        grid-template-areas:
-            'topbar'
-            'sidebar'
-            'main';
-    }
+  .layout {
+    grid-template-columns: 100%;
+    grid-template-rows: auto;
+    grid-template-areas:
+      'topbar'
+      'sidebar'
+      'main';
+  }
 
-    .main {
-        overflow: auto;
-    }
+  .main {
+    overflow: auto;
+  }
 
-    .sidebarHiddenMobile {
-        display: none;
-    }
+  .sidebarHiddenMobile {
+    display: none;
+  }
 }
