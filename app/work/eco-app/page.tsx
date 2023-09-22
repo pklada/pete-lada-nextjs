@@ -79,6 +79,16 @@ export default function Project() {
       prevSlug=""
       nextSlug="quora-dark-mode"
       accentRgb="6,36,224"
+      resources={[
+        {
+          title: "Techcrunch article on Eco's launch",
+          url: 'https://techcrunch.com/2021/03/05/eco-raises-26m-in-a16z-led-round-to-scale-its-digital-cryptocurrency-platform/'
+        },
+        {
+          title: "Bloomberg article on Eco's launch",
+          url: 'https://www.bloomberg.com/news/articles/2021-07-27/a16z-backed-crypto-firm-eco-raises-60-million-in-funding-round'
+        }
+      ]}  
     >
       <AccentColorContext.Consumer>
         {(_) => (
@@ -377,18 +387,6 @@ export default function Project() {
                   />
                 </div>
               </section>
-
-              <div className={styles.section}>
-                <TextBlock>
-                  <SectionTitle>Results</SectionTitle>
-                  <Text>
-                    As of writing, the Points Store is still in limited beta
-                    testing and conclusive results are pending. Response has
-                    been positive from users. I will update this article with
-                    more data once available.
-                  </Text>
-                </TextBlock>
-              </div>
             </div>
           </>
         )}

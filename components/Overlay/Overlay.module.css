@@ -1,0 +1,94 @@
+.wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all ease-out var(--anim-duration-normal);
+}
+
+.overlay {
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    height: 80vh;
+    background-color: var(--color-background);
+    border-radius: var(--border-radius-normal);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transform: translateY(50px);
+    transition: transform ease-out var(--anim-duration-long), opacity ease var(--anim-duration-normal);
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    height: 44px;
+    border-bottom: 1px solid var(--color-foreground-xlight);
+    align-items: center;
+    justify-content: center;
+    font-weight: var(--font-weight-bold);
+    flex-shrink: 0;
+}
+
+.content {
+    padding: var(--size-normal);
+    overflow-y: auto;
+    min-height: 0;
+}
+
+.close {
+    position: absolute;
+    right: var(--size-small);
+    text-indent: -999em;
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: var(--color-foreground-xlight);
+}
+
+.close svg {
+    width: 12px;
+    height: 12px;
+    display: inline-flex;
+}
+
+.close svg path {
+    stroke: var(--color-foreground);
+}
+
+.wrapper.isOpen {
+    opacity: 1;
+    visibility: visible;
+}
+
+.wrapper.isOpen .overlay {
+    transform: translateY(0);
+}
+
+@media (max-width: 800px) {
+    .overlay {
+        width: 100%;
+        height: 80vh;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+        transform: translateY(100%);
+        transition: transform ease-out var(--anim-duration-normal), opacity ease var(--anim-duration-normal);
+    }
+
+    .wrapper {
+        align-items: flex-end;
+    }
+}

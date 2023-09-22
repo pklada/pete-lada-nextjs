@@ -45,6 +45,7 @@
   --pressed-opacity: 0.3;
   --pressed-scale: 0.95;
 
+  --anim-duration-long: 300ms;
   --anim-duration-normal: 150ms;
   --anim-duration-fast: 60ms;
 

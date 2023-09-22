@@ -5,7 +5,6 @@ import styles from './home.module.css';
 import { Text, TextBlock } from '@/components/Text/Text';
 import Link from 'next/link';
 import React from 'react';
-import { SidebarContext } from '@/components/Sidebar/Sidebar';
 
 import EcoAppCover from '@/app/work/eco-app/cover.png';
 import PointsStoreCover from '@/app/work/eco-points-store/cover.png';
@@ -14,12 +13,7 @@ import QuoraDarkModeCover from '@/app/work/quora-dark-mode/cover.png';
 import GBScheduleCover from '@/app/work/guidebook-schedule-redesign/cover.png';
 import GBSpacesCover from '@/app/work/guidebook-spaces/cover.png';
 
-export default function Home() {
-  const sidebarContext = React.useContext(SidebarContext);
-
-  React.useEffect(() => {
-    sidebarContext.setIsCollapsable(false);
-  }, []);
+export default function Page() {
 
   return (
     <div className={styles.wrapper}>
@@ -133,7 +127,7 @@ const ProjectCard = ({
   year: string;
   slug: string;
 }) => (
-  <Link className={styles.card} href={`/work/${slug}`}>
+  <Link className={styles.card} href={`/work/${slug}`} prefetch={false}>
     <div className={styles.cardImage}>
       <Image src={image} fill alt={title} priority placeholder="blur" />
     </div>

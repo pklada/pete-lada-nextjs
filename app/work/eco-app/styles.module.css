@@ -7,9 +7,9 @@
 
 @media (max-width: 800px) {
   .headerImg {
-    height: auto;
+    height: auto !important;
     margin-top: var(--size-large);
-    margin-bottom: -140px;
+    margin-bottom: -140px !important;
     margin-left: -30px;
     margin-right: -30px;
   }
