@@ -1,20 +1,15 @@
-'use client';
-
-import React, { useContext } from 'react';
-import styles from './project.module.css';
-import { useIsMobile } from '@/utils/useIsMobile';
 import { Navbar } from '@/components/Navbar/Navbar';
+import React from 'react';
+import styles from './project.module.css';
 
 export default function ProjectLayout({
   children
 }: {
   children: React.ReactNode;
 }) {
-  const isMobile = useIsMobile();
-
   return (
     <div>
-      {isMobile && <Navbar />}
+      <Navbar />
       {children}
     </div>
   );

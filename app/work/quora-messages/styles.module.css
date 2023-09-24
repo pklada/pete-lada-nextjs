@@ -1,19 +1,19 @@
-.headerImg img {
+.header .headerImg img {
   width: 600px;
 }
 
-.headerImg {
+.header .headerImg {
   height: 450px;
 }
 
 @media screen and (max-width: 800px) {
-  .headerImg {
+  .header .headerImg {
     width: auto;
     height: 300px;
     margin-top: var(--size-large);
   }
 
-  .headerImg img {
+  .header .headerImg img {
     width: 100%;
   }
 }

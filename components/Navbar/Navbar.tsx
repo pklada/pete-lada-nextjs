@@ -6,6 +6,7 @@ import { Text } from '../Text/Text';
 import styles from './Navbar.module.css';
 import React from 'react';
 import Link from 'next/link';
+import { useIsMobile } from '@/utils/useIsMobile';
 
 export const Navbar = () => {
   const { isOverDark, showBackground, subtitle } =
@@ -17,6 +18,12 @@ export const Navbar = () => {
     [styles.showBackground]: showBackground,
     [styles.hasSubtitle]: subtitle!!
   });
+
+  const isMobile = useIsMobile();
+
+  if (!isMobile) {
+    return <></>;
+  }
 
   return (
     <div className={navbarClass}>

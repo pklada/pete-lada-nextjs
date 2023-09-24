@@ -53,7 +53,7 @@ export const PostHeader = ({
           <div
             className={`${styles.introImage} ${imgContainerClassName ?? ''}`}
           >
-            <Image src={image} alt={title} sizes="100vw" />
+            <Image src={image} alt={title} sizes="100vw" priority />
           </div>
         )}
       </div>

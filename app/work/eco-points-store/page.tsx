@@ -9,6 +9,11 @@ import { SectionTitle } from '../layout';
 import styles from '../project.module.css';
 import headerImage from './project-header-eco-points-store.png';
 import postStyles from './styles.module.css';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Pete Lada | Product design generalist | Building the Eco Points Store'
+};
 
 export default function Project() {
   const accent = '13,87,74';

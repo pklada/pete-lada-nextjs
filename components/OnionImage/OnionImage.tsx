@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import styles from './OnionImage.module.css';
 import { useInViewport } from 'react-in-viewport';

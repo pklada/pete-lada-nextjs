@@ -10,6 +10,12 @@ import { SectionTitle } from '../layout';
 import styles from '../project.module.css';
 import headerImage from './project-header-eco-app.png';
 import postStyles from './styles.module.css';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title:
+    'Pete Lada | Product design generalist | Designing and developing the Eco App'
+};
 
 const FigureWithVideo = ({
   frameColor,
@@ -284,7 +290,7 @@ export default function Project() {
                 frameColor="#333"
                 imageSrc="/eco-invite-pending-usd.png"
                 imageSrc2x="/eco-invite-pending-usd@2x.png"
-                aspectRatio='383/852'
+                aspectRatio="383/852"
                 caption="If you sent to someone who was not on Eco, they would be presented with a personalized onboarding which included their pending funds as an incentive to complete sign up."
               />
             </div>
