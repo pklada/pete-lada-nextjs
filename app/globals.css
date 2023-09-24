@@ -92,6 +92,7 @@ body {
 
 mux-player {
   --controls: none;
+  --media-object-fit: cover;
 }
 
 a {

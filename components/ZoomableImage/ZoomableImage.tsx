@@ -32,7 +32,7 @@ export const ZoomableImage = ({
   videoSrc,
   posterUrl,
   muxId,
-  aspectRatio
+  aspectRatio = "37/80"
 }: ZoomableImageProps) => {
   const [isOpen, setIsOpen] = React.useState(false);
 

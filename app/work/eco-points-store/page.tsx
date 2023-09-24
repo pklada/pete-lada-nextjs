@@ -164,7 +164,7 @@ export default function Project() {
               <figure>
                 <IPhone>
                   <ZoomableImage
-                    muxId="M00maw02tJ1QVfSH8L4DGeygUDmr6VjTZ6rj8BvSMH01W00"
+                    muxId="iEpHe7FwRdGGjCVR6FekKi100AzrsrBW5t7o7wbPx8RI"
                     subtitle="The primary entry point into the Credit summary view is via a user's dashboard."
                   />
                 </IPhone>

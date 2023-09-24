@@ -46,13 +46,15 @@ const FigureWithImage = ({
   imageSrc,
   imageSrc2x,
   caption,
-  includeDynamicIsland = true
+  includeDynamicIsland = true,
+  aspectRatio
 }: {
   frameColor?: string;
   imageSrc2x: string;
   imageSrc: string;
   caption: string;
   includeDynamicIsland?: boolean;
+  aspectRatio?: string;
 }) => (
   <figure>
     <IPhone frameColor={frameColor} includeDynamicIsland={includeDynamicIsland}>
@@ -60,6 +62,7 @@ const FigureWithImage = ({
         imgSrc={imageSrc}
         imgSrc2x={imageSrc2x}
         subtitle={caption}
+        aspectRatio={aspectRatio}
       />
     </IPhone>
     <figcaption className={styles.sectionCaption}>
@@ -281,6 +284,7 @@ export default function Project() {
                 frameColor="#333"
                 imageSrc="/eco-invite-pending-usd.png"
                 imageSrc2x="/eco-invite-pending-usd@2x.png"
+                aspectRatio='383/852'
                 caption="If you sent to someone who was not on Eco, they would be presented with a personalized onboarding which included their pending funds as an incentive to complete sign up."
               />
             </div>
