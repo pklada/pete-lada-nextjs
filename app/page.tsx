@@ -23,8 +23,8 @@ export default function Page() {
       </TextBlock>
       <div className={styles.grid}>
         <ProjectCard
-          title="Eco App"
-          subtitle="Designing and developing the Eco App"
+          title="Designing the Eco App"
+          subtitle="Creating a zero to one fintech product"
           image={EcoAppCover}
           company="Eco"
           year="2021-2023"
