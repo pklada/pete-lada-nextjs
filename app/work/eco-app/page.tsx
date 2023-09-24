@@ -14,7 +14,12 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title:
-    'Pete Lada | Product design generalist | Designing and developing the Eco App'
+    'Pete Lada | Product design generalist | Designing and developing the Eco App',
+  openGraph: {
+    images: [
+      "/meta-eco-app.jpg"
+    ]
+  }
 };
 
 const FigureWithVideo = ({
