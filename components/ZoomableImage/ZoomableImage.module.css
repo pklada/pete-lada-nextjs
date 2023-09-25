@@ -97,8 +97,8 @@
 
 .overlay.zoomFit video,
 .overlay.zoomFit mux-player {
-  width: 90vw !important;
-  height: 90vh !important;
+  max-width: 90vw !important;
+  max-height: 90vh !important;
   border-radius: var(--border-radius-normal);
   overflow: hidden;
 }
