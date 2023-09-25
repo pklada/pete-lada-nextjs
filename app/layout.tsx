@@ -8,9 +8,7 @@ export const metadata: Metadata = {
   description:
     "Hi! I'm Pete Lada, a product design generalist. I'm currently a staff product designer at Eco. Previously, I was a design lead at Quora, and co-founded and led product design at Guidebook, a mobile event guide platform.",
   openGraph: {
-    images: [
-      "/meta.jpg"
-    ]
+    images: ['/meta.jpg']
   }
 };
 

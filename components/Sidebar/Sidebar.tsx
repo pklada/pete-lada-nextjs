@@ -13,6 +13,8 @@ import classNames from 'classnames';
 import { usePathname } from 'next/navigation';
 import { useIsMobile } from '@/utils/useIsMobile';
 import { OverlayContext } from '../Overlay/Overlay';
+import { Timeline, TimelineItem } from '../Timeline/Timeline';
+import { Button } from '../Button/Button';
 
 export const Sidebar = ({ className }: { className: string }) => {
   const path = usePathname();
@@ -77,17 +79,19 @@ export const Sidebar = ({ className }: { className: string }) => {
 const MoreButton = () => {
   const overlayContext = React.useContext(OverlayContext);
   return (
-    <a
+    <Button
+      text="More about me"
       className={styles.moreButton}
+      secondary
+      small
+      includeArrow
       onClick={() => {
         overlayContext.setOverlay({
           title: 'More about me',
           content: <MoreInfo />
         });
       }}
-    >
-      More about me
-    </a>
+    />
   );
 };
 
@@ -103,31 +107,90 @@ const MoreInfo = () => (
       design.
     </Text>
     <Text>
-      I've always been fascinated with the connection between art and
-      technology. This manifested earliest while trying to hack together
-      webpages to display my early pieces of art while I was in high school.
+      I love to sweat the details, particularly when it comes to interface
+      design. Building products which are not only functional but also beautiful
+      and delightful to use is something I truly love to do.
     </Text>
-    <Text>
-      That quickly turned into freelance design work, and with that the ability
-      to bootstrap my own ideas.
-    </Text>
-    <Text>
-      I co-founded Guidebook after college, and ran product design there for
-      nearly 9 years. We grew the company from nothing to a $12MM ARR business,
-      which I am deeply proud of. Guidebook is still going strong, but in 2019 I
-      decided to turn my attention to new projects.
-    </Text>
-    <Text>
-      I joined Quora, which allowed me to work on a massive product, tackling
-      design and platform challenges at scale.
-    </Text>
-    <Text>
-      I'm currently at Eco, back to my start-up roots, where I get to build a
-      web3 fintech product from the ground up.
-    </Text>
+    <div className={styles.sidebarTimeline}>
+      <Timeline>
+        <TimelineItem
+          title="High School"
+          description={
+            <TextBlock>
+              <Text>
+                I've always been fascinated with the connection between art and
+                technology. This manifested earliest while trying to hack
+                together webpages to display my early pieces of art while I was
+                in high school.
+              </Text>
+              <Text>
+                That quickly turned into freelance design work, and with that
+                the ability to bootstrap my own ideas.
+              </Text>
+            </TextBlock>
+          }
+          year="2003"
+        />
+
+        <TimelineItem
+          title="College"
+          description={
+            <Text>
+              During college I collaborated with a colleague of mine on a
+              variety of side projects, including Snoopr, a project we{' '}
+              <a href="https://www.cnet.com/tech/services-and-software/snoopr-does-digg-for-deals/">
+                likened to "Digg for deals"
+              </a>
+              . This was sold to RetailMeNot.
+            </Text>
+          }
+          year="2008"
+        />
+
+        <TimelineItem
+          title="Guidebook"
+          description={
+            <Text>
+              I co-founded Guidebook after college, and ran product design there
+              for nearly 9 years. We grew the company from nothing to a $12MM
+              ARR business, which I am deeply proud of. Guidebook is still going
+              strong, but in 2019 I decided to turn my attention to new
+              projects.
+            </Text>
+          }
+          year="2010"
+        />
+
+        <TimelineItem
+          title="Quora"
+          description={
+            <Text>
+              I joined Quora, which allowed me to work on a massive product,
+              tackling design and platform challenges at scale.
+            </Text>
+          }
+          year="2020"
+        />
+
+        <TimelineItem
+          title="Eco"
+          description={
+            <Text>
+              I'm currently at <a href="http://eco.org">Eco</a>, back to my
+              start-up roots, where I get to build a web3 fintech product from
+              the ground up.
+            </Text>
+          }
+          year="2022"
+        />
+      </Timeline>
+    </div>
     <Text>
       Outside of work, I love running and long walks, gardening, good beer and
       coffee, and my growing family.
+    </Text>
+    <Text>
+      <a href="mailto:pklada@gmail.com">Let's talk</a>
     </Text>
   </TextBlock>
 );

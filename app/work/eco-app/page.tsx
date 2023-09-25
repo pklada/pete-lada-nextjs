@@ -16,9 +16,7 @@ export const metadata: Metadata = {
   title:
     'Pete Lada | Product design generalist | Designing and developing the Eco App',
   openGraph: {
-    images: [
-      "/meta-eco-app.jpg"
-    ]
+    images: ['/meta-eco-app.jpg']
   }
 };
 
@@ -90,7 +88,7 @@ export default function Project() {
       title="Designing and developing the Eco App"
       subtitle="Creating a zero to one fintech product"
       prevSlug=""
-      nextSlug="quora-dark-mode"
+      nextSlug="eco-points-store"
       accentRgb={accent}
       resources={[
         {

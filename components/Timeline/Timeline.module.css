@@ -1,0 +1,63 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: var(--size-large) var(--size-normal);
+  position: relative;
+
+  --year-width: 60px;
+}
+
+.line {
+  --line-width: 8px;
+
+  position: absolute;
+  top: 0;
+  left: calc((var(--year-width) / 2) - (var(--line-width) / 2));
+  bottom: 0;
+  width: var(--line-width);
+  background: linear-gradient(
+    to bottom,
+    var(--color-accent) 0%,
+    var(--color-accent) 80%,
+    var(--color-background) 100%
+  );
+  z-index: 1;
+  opacity: 0.05;
+}
+
+.item {
+  display: flex;
+  gap: var(--size-normal);
+  align-items: flex-start;
+  position: relative;
+  z-index: 2;
+}
+
+.itemYear {
+  border: 1px solid var(--color-accent-light);
+  padding: 4px;
+  border-radius: 999em;
+  font-size: var(--font-size-small);
+  display: inline-flex;
+  align-items: center;
+  color: var(--color-accent);
+  background-color: var(--color-background);
+  width: var(--year-width);
+  flex-shrink: 0;
+  justify-content: center;
+  box-shadow: 0 2px 3px var(--color-accent-xlight);
+}
+
+.itemTitle {
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--size-small);
+  margin-top: 3px;
+}
+
+.wrapper .item {
+  margin-bottom: var(--size-normal);
+}
+
+.wrapper .item:last-child {
+  margin-bottom: 0;
+}

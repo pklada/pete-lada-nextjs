@@ -1,0 +1,71 @@
+.button {
+  border-radius: 888em;
+  background-color: var(--color-accent);
+  color: var(--color-background);
+  appearance: none;
+  border: 1px solid var(--color-accent);
+  font-size: var(--font-size-normal);
+  font-family: inherit;
+  font-weight: var(--font-weight-bold);
+  padding: 4px 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  display: inline-flex;
+  gap: 2px;
+  align-items: center;
+  transition: all ease-out var(--anim-duration-fast);
+  will-change: transform;
+}
+
+.button svg {
+  display: none;
+}
+
+.button svg path {
+  stroke: var(--color-accent);
+}
+
+.button:active {
+  transform: translateY(1px) scale(0.99);
+}
+
+.secondary {
+  background-color: var(--color-background);
+  color: var(--color-accent);
+  border-color: var(--color-accent-light);
+}
+
+.small {
+  font-size: var(--font-size-small);
+}
+
+.includeArrow svg {
+  display: block;
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+  transition: transform ease-out var(--anim-duration-fast);
+}
+
+.arrowContainer {
+  width: 12px;
+  display: flex;
+  justify-content: flex-end;
+  opacity: 0.6;
+}
+
+.includeArrow svg path:first-child {
+  opacity: 0;
+  transition: opacity ease-out var(--anim-duration-fast);
+}
+
+.includeArrow:hover .arrowContainer {
+  opacity: 1;
+}
+
+.includeArrow:hover svg path:first-child {
+  opacity: 1;
+}
+
+.includeArrow:hover svg {
+  transform: translateX(3px);
+}

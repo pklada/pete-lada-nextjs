@@ -1,22 +1,22 @@
 .header .headerImg img {
-    width: 600px;
+  width: 600px;
 }
 
 .header .headerImg {
-    height: 450px;
+  height: 450px;
 }
 
 @media (max-width: 800px) {
-    .header .headerImg {
-        height: 430px;
-        margin-top: var(--size-large);
-        margin-left: -20px;
-        margin-right: -20px;
-        margin-bottom: calc(-1 * (100px + var(--post-header-vertical-padding)));
-    }
+  .header .headerImg {
+    height: 430px;
+    margin-top: var(--size-large);
+    margin-left: -20px;
+    margin-right: -20px;
+    margin-bottom: calc(-1 * (100px + var(--post-header-vertical-padding)));
+  }
 
-    .header .headerImg img {
-        width: 100%;
-        height: 100%;
-    }
+  .header .headerImg img {
+    width: 100%;
+    height: 100%;
+  }
 }

@@ -139,19 +139,23 @@
 }
 
 .moreButton {
-  border: 1px solid var(--color-accent-light);
   text-decoration: none;
-  padding: 4px 10px;
-  border-radius: 999em;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: var(--font-size-small);
   cursor: pointer;
 }
 
 .sidebarLinkWrapper .moreButton {
   display: none;
+}
+
+.sidebarTimeline {
+  background: var(--color-accent-xlight);
+  margin-left: calc(-1 * var(--size-normal));
+  margin-right: calc(-1 * var(--size-normal));
+  margin-bottom: var(--size-normal);
+  overflow: hidden;
 }
 
 @media (max-width: 800px) {
