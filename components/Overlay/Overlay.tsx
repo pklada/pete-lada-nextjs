@@ -19,6 +19,24 @@ export const Overlay = ({ isOpen, content, title, onClose }: OverlayProps) => {
     document.documentElement.classList.toggle('overlay-open', isOpen);
   }, [isOpen]);
 
+  const handleKeyDown = (e: KeyboardEvent) => {
+    if (e.key === 'Escape' && isOpen) {
+      onClose();
+    }
+  };
+
+  useEffect(() => {
+    if (isOpen) {
+      window.addEventListener('keydown', handleKeyDown, { once: true });
+    } else {
+      window.removeEventListener('keydown', handleKeyDown);
+    }
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isOpen]);
+
   return (
     <div className={overlayClass}>
       <div className={styles.overlay}>
@@ -52,6 +70,7 @@ export const Overlay = ({ isOpen, content, title, onClose }: OverlayProps) => {
         </div>
         <div className={styles.content}>{content}</div>
       </div>
+      <div className={styles.shim} onClick={onClose} />
     </div>
   );
 };

@@ -26,6 +26,7 @@
   transition:
     transform ease-out var(--anim-duration-long),
     opacity ease var(--anim-duration-normal);
+  z-index: 2;
 }
 
 .navbar {
@@ -45,6 +46,15 @@
   min-height: 0;
 }
 
+.shim {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
 .close {
   position: absolute;
   right: var(--size-small);
@@ -59,6 +69,11 @@
   justify-content: center;
   border-radius: 50%;
   background-color: var(--color-foreground-xlight);
+}
+
+.close:hover {
+  cursor: pointer;
+  opacity: 0.5;
 }
 
 .close svg {

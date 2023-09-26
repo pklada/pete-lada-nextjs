@@ -258,13 +258,14 @@ export default function Project() {
                 <IPhone>
                   <ZoomableImage
                     muxId="602rRJXOoabieD8W2bqkgTWvwNumZigTalIvIziT7o7E"
-                    subtitle="Purchasing credit is a simple flow, which deducts Points from a user's Point balance."
+                    subtitle="Purchasing credit is a simple flow, deducting Points
+                    from a user's total Point balance."
                   />
                 </IPhone>
                 <figcaption className={styles.sectionCaption}>
                   <Text intensity="medium">
-                    Purchasing credit is a simple flow, which deducts Points
-                    from a user's Point balance.
+                    Purchasing credit is a simple flow, deducting Points from a
+                    user's total Point balance.
                   </Text>
                 </figcaption>
               </figure>
@@ -272,13 +273,14 @@ export default function Project() {
                 <IPhone>
                   <ZoomableImage
                     muxId="MtZ4VYv6KcgLn2VoufJK8S14YXSz01lmLIJvzxP2KEHI"
-                    subtitle="Credit is represented in the UI with a purple treatment, and the credit icon."
+                    subtitle="Credit is represented in the UI with a purple treatment, and the credit icon. I wanted it to be clear in the UI when credit was applicable to a given interaction."
                   />
                 </IPhone>
                 <figcaption className={styles.sectionCaption}>
                   <Text intensity="medium">
                     Credit is represented in the UI with a purple treatment, and
-                    the credit icon.
+                    the credit icon. I wanted it to be clear in the UI when
+                    credit was applicable to a given interaction.
                   </Text>
                 </figcaption>
               </figure>

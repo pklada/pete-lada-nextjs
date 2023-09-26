@@ -44,7 +44,7 @@ const Arrow = () => (
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <path d="M1 9H16" stroke="black" stroke-width="1.5" />
-    <path d="M10 3L16 9L10 15" stroke="black" stroke-width="1.5" />
+    <path d="M1 9H16" stroke="black" strokeWidth="1.5" />
+    <path d="M10 3L16 9L10 15" stroke="black" strokeWidth="1.5" />
   </svg>
 );
