@@ -11,6 +11,7 @@ import styles from '../project.module.css';
 import headerImage from './project-header-eco-app.png';
 import postStyles from './styles.module.css';
 import { Metadata } from 'next';
+import { Button } from '@/components/Button/Button';
 
 export const metadata: Metadata = {
   title:
@@ -369,8 +370,12 @@ export default function Project() {
               />
               <Text>
                 Read the{' '}
-                <Link href="/work/eco-points-store">full case study</Link> on
-                this project.
+                <Button
+                  text="Full case study"
+                  includeArrow
+                  href="/work/eco-points-store"
+                />{' '}
+                on this project.
               </Text>
             </TextBlock>
           </div>
@@ -389,6 +394,45 @@ export default function Project() {
                 caption="Viewing your available Eco Credit. Credit would be applied towards future purchases on Eco."
               />
             </div>
+          </section>
+
+          <div className={styles.section}>
+            <TextBlock>
+              <SectionTitle>Marketing site</SectionTitle>
+              <Text>
+                When we moved the app to use a traditional USD backend, we also
+                spent a few cycles creating a new marketing site to better
+                demonstrate the product. This included dramatically simpling the
+                pitch, both in terms of language and presentation. The site was
+                essentially a single page, with a clear call to action. The site
+                converted dramatically better than the previous incarnation.
+              </Text>
+              <Text>
+                I designed, built, and deployed the site. I was especially proud
+                of the various "build-in" animations I constructed, entirely in
+                JS/CSS.
+              </Text>
+            </TextBlock>
+          </div>
+
+          <section className={`${styles.section} ${styles.fullWidth}`}>
+            <figure>
+              <Browser url="https://ecoapp.com">
+                <div className={styles.video}>
+                  <ZoomableImage
+                    muxId="7apnHDp4dJjKkun01D3WlBA21j2ihVoTT400e1KbM2b00k"
+                    subtitle="A scrollthrough of the homepage for the Eco App. I designed, built, and deployed the site (nextjs/vercel)."
+                    aspectRatio="747/482"
+                  />
+                </div>
+              </Browser>
+              <figcaption className={styles.sectionCaption}>
+                <Text intensity="medium">
+                  A scrollthrough of the homepage for the Eco App. I designed,
+                  built, and deployed the site (nextjs/vercel).{' '}
+                </Text>
+              </figcaption>
+            </figure>
           </section>
         </div>
       </>

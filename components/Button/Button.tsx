@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import styles from './Button.module.css';
+import Link from 'next/link';
 
 interface ButtonProps {
   text: string;
@@ -8,6 +9,7 @@ interface ButtonProps {
   small?: boolean;
   includeArrow?: boolean;
   onClick?: () => void;
+  href?: string;
 }
 
 export const Button = ({
@@ -16,7 +18,8 @@ export const Button = ({
   secondary,
   small,
   includeArrow,
-  onClick
+  onClick,
+  href
 }: ButtonProps) => {
   const buttonClass = classNames({
     [styles.button]: true,
@@ -26,12 +29,22 @@ export const Button = ({
     [styles.includeArrow]: includeArrow
   });
 
-  return (
-    <button className={buttonClass} onClick={onClick}>
+  const Content = () => (
+    <>
       {text}
       <div className={styles.arrowContainer}>
         <Arrow />
       </div>
+    </>
+  );
+
+  return href ? (
+    <Link className={buttonClass} href={href}>
+      <Content />
+    </Link>
+  ) : (
+    <button className={buttonClass} onClick={onClick}>
+      <Content />
     </button>
   );
 };

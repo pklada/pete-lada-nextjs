@@ -21,6 +21,10 @@
 }
 
 .button svg path {
+  stroke: var(--color-background);
+}
+
+.secondary svg path {
   stroke: var(--color-accent);
 }
 
