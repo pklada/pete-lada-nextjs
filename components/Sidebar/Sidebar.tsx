@@ -115,6 +115,7 @@ const MoreInfo = () => (
       <Timeline>
         <TimelineItem
           title="High School"
+          location="Palo Alto, CA"
           description={
             <TextBlock>
               <Text>
@@ -134,6 +135,7 @@ const MoreInfo = () => (
 
         <TimelineItem
           title="College"
+          location="Boston, MA"
           description={
             <Text>
               During college I collaborated with a colleague of mine on a
@@ -149,6 +151,7 @@ const MoreInfo = () => (
 
         <TimelineItem
           title="Guidebook"
+          location="San Francisco, CA"
           description={
             <Text>
               I co-founded Guidebook after college, and ran product design there
@@ -163,6 +166,7 @@ const MoreInfo = () => (
 
         <TimelineItem
           title="Quora"
+          location="Mountain View, CA"
           description={
             <Text>
               I joined Quora, which allowed me to work on a massive product,
@@ -174,6 +178,7 @@ const MoreInfo = () => (
 
         <TimelineItem
           title="Eco"
+          location="Distributed"
           description={
             <Text>
               I'm currently at <a href="http://eco.org">Eco</a>, back to my

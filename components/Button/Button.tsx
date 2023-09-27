@@ -32,9 +32,9 @@ export const Button = ({
   const Content = () => (
     <>
       {text}
-      <div className={styles.arrowContainer}>
+      <span className={styles.arrowContainer}>
         <Arrow />
-      </div>
+      </span>
     </>
   );
 

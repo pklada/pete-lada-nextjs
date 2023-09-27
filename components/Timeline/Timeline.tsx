@@ -8,6 +8,7 @@ interface TimelineItemProps {
   title: string;
   year: string;
   description: string | React.ReactNode;
+  location: string;
 }
 
 export const Timeline = ({ children }: TimelineProps) => {
@@ -22,13 +23,17 @@ export const Timeline = ({ children }: TimelineProps) => {
 export const TimelineItem = ({
   title,
   year,
-  description
+  description,
+  location
 }: TimelineItemProps) => {
   return (
     <div className={styles.item}>
       <label className={styles.itemYear}>{year}</label>
       <div>
-        {title && <p className={styles.itemTitle}>{title}</p>}
+        <div className={styles.meta}>
+          {title && <p className={styles.itemTitle}>{title}</p>}
+          <p>{location}</p>
+        </div>
         <div className={styles.itemDescription}>{description}</div>
       </div>
     </div>

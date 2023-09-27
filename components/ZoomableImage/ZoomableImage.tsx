@@ -105,6 +105,7 @@ export const ZoomableImage = ({
           videoSrc={videoSrc}
           muxId={muxId}
           posterUrl={posterUrl}
+          aspectRatio={aspectRatio}
         />
       </ModalWrapper>
     </>
@@ -123,7 +124,8 @@ const ImageOverlay = ({
   subtitle,
   videoSrc,
   muxId,
-  posterUrl
+  posterUrl,
+  aspectRatio
 }: ImageOverlayProps) => {
   const [zoomType, setZoomType] = React.useState<ZoomType>(ZoomType.fit);
   const [offset, _setOffset] = React.useState({ x: 0, y: 0 });
@@ -402,6 +404,7 @@ const ImageOverlay = ({
             playsInline
             playbackId={muxId}
             poster={`https://image.mux.com/${muxId}/thumbnail.png?time=0`}
+            style={{ aspectRatio, display: 'block', overflow: 'hidden' }}
           />
         )}
       </div>

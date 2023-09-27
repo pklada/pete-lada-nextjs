@@ -50,8 +50,19 @@
 
 .itemTitle {
   font-weight: var(--font-weight-bold);
-  margin-bottom: var(--size-small);
+}
+
+.meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
   margin-top: 3px;
+  margin-bottom: var(--size-small);
+}
+
+.meta p:last-child {
+  font-size: var(--font-size-small);
+  color: var(--color-accent);
 }
 
 .wrapper .item {
