@@ -1,8 +1,8 @@
 .wrapper {
-  background-color: var(--color-accent-xlight);
+  background-color: var(--color-background);
   padding: var(--size-normal);
   border-radius: var(--border-radius-normal);
-  border: 1px dashed var(--color-accent-light);
+  border: 1px dashed var(--color-accent-medium);
   display: flex;
   align-items: first baseline;
 }

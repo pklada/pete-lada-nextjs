@@ -23,6 +23,10 @@
   margin-right: calc(-1 * var(--size-xxlarge));
 }
 
+.callout {
+  margin-bottom: var(--size-xlarge);
+}
+
 @media (max-width: 800px) {
   .phones {
     position: relative;
@@ -43,5 +47,9 @@
   .videoGrid {
     margin: auto;
     margin-left: calc(-1 * (var(--size-small) + 20px));
+  }
+
+  .callout {
+    margin-bottom: var(--size-xlarge);
   }
 }
