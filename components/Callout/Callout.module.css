@@ -1,0 +1,25 @@
+.wrapper {
+  background-color: var(--color-accent-xlight);
+  padding: var(--size-normal);
+  border-radius: var(--border-radius-normal);
+  border: 1px dashed var(--color-accent-light);
+  display: flex;
+  align-items: first baseline;
+}
+
+.icon {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -2px;
+  background-color: var(--color-accent-light);
+  border-radius: 50%;
+  margin-right: var(--size-normal);
+}
+
+.icon svg path {
+  stroke: var(--color-accent);
+}

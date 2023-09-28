@@ -28,6 +28,10 @@
   padding-top: 150px;
 }
 
+.callout {
+  margin-bottom: var(--size-xlarge);
+}
+
 @media (max-width: 800px) {
   .phones {
     width: 100%;

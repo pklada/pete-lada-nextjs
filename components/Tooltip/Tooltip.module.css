@@ -1,0 +1,44 @@
+.textWrapper {
+  display: inline;
+  position: relative;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-decoration-color: var(--color-accent-medium);
+}
+
+.textWrapper .text {
+  cursor: help;
+  transition: opacity ease var(--anim-duration-normal);
+}
+
+.textWrapper:hover .text {
+  opacity: 0.5;
+}
+
+.tooltipWrapper {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.98);
+  transition: all ease var(--anim-duration-normal);
+}
+
+.inner {
+  background-color: var(--color-background);
+  width: 200px;
+  border: 1px solid var(--color-accent-medium);
+  padding: var(--size-small);
+  border-radius: var(--border-radius-normal);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  font-size: var(--font-size-small);
+  display: block;
+}
+
+.textWrapper:hover .tooltipWrapper,
+.tooltipWrapper:hover {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: unset;
+}

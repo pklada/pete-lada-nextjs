@@ -12,6 +12,7 @@ import headerImage from './project-header-eco-app.png';
 import postStyles from './styles.module.css';
 import { Metadata } from 'next';
 import { Button } from '@/components/Button/Button';
+import { ToolTip } from '@/components/Tooltip/Tooltip';
 
 export const metadata: Metadata = {
   title:
@@ -134,11 +135,32 @@ export default function Project() {
             <TextBlock>
               <SectionTitle>Summary</SectionTitle>
               <Text>
-                Eco launched the first version of their app in 2020 after
-                raising a funding round from a16z and others. The initial
-                version of the Eco app was a true MVP, proving out the idea that
-                a banking system where the incetives of the company align with
-                incentives of the users could work.
+                <ToolTip
+                  text={
+                    <span>
+                      Eco is a web3 fintech company whos primary goal is to
+                      develop and popularize a new currency built on top of
+                      Ethereum called{' '}
+                      <a href="https://coinmarketcap.com/currencies/eco/">
+                        ECO
+                      </a>{' '}
+                      and its sister token{' '}
+                      <a href="https://coinmarketcap.com/currencies/ecox/">
+                        ECOx
+                      </a>
+                      . You can learn more about the currency at{' '}
+                      <a href="https://eco.org">eco.org</a> (which I also
+                      designed).
+                    </span>
+                  }
+                >
+                  Eco
+                </ToolTip>{' '}
+                launched the first version of their app in 2020 after raising a
+                funding round from a16z and others. The initial version of the
+                Eco app was a true MVP, proving out the idea that a banking
+                system where the incetives of the company align with incentives
+                of the users could work.
               </Text>
               <Text>
                 The MVP version of the product was a React Native app, and was
