@@ -41,12 +41,12 @@ export const Sidebar = ({ className }: { className: string }) => {
           <Wave />
           <TextBlock>
             <Text intensity="medium">
-              I'm currently a staff product designer at{' '}
+              I'm currently a product designer at{' '}
               <span className={styles.sidebarCompany}>
-                <SidebarIcon /> <a href="https://ecoapp.com/">Eco</a>
+                <SidebarIcon /> <a href="https://perplexity.ai/">Perplexity</a>
                 <span>.</span>
               </span>{' '}
-              Previously, I was a design lead at Quora, and co-founded and led
+              Previously, I was a staff product designer at Eco, a design lead at Quora, and co-founded and led
               product design at Guidebook, a mobile event guide platform.
             </Text>
             <Text>
@@ -202,29 +202,9 @@ const MoreInfo = () => (
 
 const SidebarIcon = () => (
   <span className={styles.sidebarIcon}>
-    <svg
-      width="34"
-      height="34"
-      viewBox="0 0 34 34"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M5.38184 10.2676C7.68191 14.3193 12.0208 17.0507 16.9946 17.0507C21.9524 17.0507 26.2795 14.3367 28.5852 10.3064C26.2592 6.30994 21.9294 3.62354 16.9722 3.62354C12.031 3.62354 7.71319 6.29259 5.38184 10.2676Z"
-        fill="#FFDD50"
-      ></path>
-      <path
-        d="M9.17128 6.12158C12.56 8.55704 14.7687 12.5447 14.7687 17.0509C14.7687 21.557 12.56 25.5447 9.17128 27.9801C5.76561 25.5447 3.5459 21.557 3.5459 17.0509C3.5459 12.5447 5.76561 8.55704 9.17128 6.12158Z"
-        fill="#95E8DA"
-      ></path>
-      <path
-        d="M5.38184 10.2677C6.34044 8.6333 7.63488 7.21966 9.17041 6.12158C12.5125 8.5235 14.7068 12.4352 14.7666 16.865C10.7439 16.1863 7.33086 13.7011 5.38184 10.2677Z"
-        fill="#59C785"
-      ></path>
-      <path
-        d="M14.7695 30.2976C15.4864 30.4159 16.2225 30.4775 16.9729 30.4775C24.324 30.4775 30.2954 24.5699 30.3987 17.2433C29.6609 17.1164 28.9025 17.0503 28.1287 17.0503C20.8097 17.0503 14.8653 22.9649 14.7695 30.2976Z"
-        fill="#000D85"
-      ></path>
+    <svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="400" height="400" fill="black"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M101.008 42L190.99 124.905V124.886V42.1913H208.506V125.276L298.891 42V136.524H336V272.866H299.005V357.035L208.506 277.525V357.948H190.99V278.836L101.11 358V272.866H64V136.524H101.008V42ZM177.785 153.826H81.5159V255.564H101.088V223.472L177.785 153.826ZM118.625 231.149V319.392L190.99 255.655V165.421L118.625 231.149ZM209.01 254.812V165.336L281.396 231.068V272.866H281.489V318.491L209.01 254.812ZM299.005 255.564H318.484V153.826H222.932L299.005 222.751V255.564ZM281.375 136.524V81.7983L221.977 136.524H281.375ZM177.921 136.524H118.524V81.7983L177.921 136.524Z" fill="white"/>
     </svg>
   </span>
 );

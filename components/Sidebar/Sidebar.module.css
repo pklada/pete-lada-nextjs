@@ -50,13 +50,16 @@
 
 .sidebarCompany {
   display: inline-flex;
+  vertical-align: baseline;
+  position: relative;
+  top: 1px;
 }
 
 .sidebarIcon {
   width: 18px;
   height: 18px;
   background: white;
-  border-radius: 3px;
+  border-radius: 4px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -70,8 +73,10 @@
 }
 
 .sidebarIcon svg {
-  width: 90%;
-  height: 90%;
+  width: 100%;
+  height: 100%;
+  display: inline-flex;
+  border-radius: inherit;
 }
 
 .sidebarFooter {
