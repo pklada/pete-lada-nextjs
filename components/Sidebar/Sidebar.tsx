@@ -41,12 +41,12 @@ export const Sidebar = ({ className }: { className: string }) => {
           <Wave />
           <TextBlock>
             <Text intensity="medium">
-              I'm currently a staff product designer at{' '}
+              I'm currently a product designer at{' '}
               <span className={styles.sidebarCompany}>
-                <SidebarIcon /> <a href="https://ecoapp.com/">Eco</a>
+                <SidebarIcon /> <a href="https://perplexity.ai/">Perplexity</a>
                 <span>.</span>
               </span>{' '}
-              Previously, I was a design lead at Quora, and co-founded and led
+              Previously, I was a staff product designer at Eco, a design lead at Quora, and co-founded and led
               product design at Guidebook, a mobile event guide platform.
             </Text>
             <Text>
